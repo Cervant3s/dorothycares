@@ -9,3 +9,4 @@ node_modules
 firebase/functions/node_modules/*
 NodeJS-API/nodemon.json
 .vscode/*
+.eslintrc.json

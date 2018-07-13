@@ -83,7 +83,7 @@ function addDorothyAnswerText(answer, selector, error = false) {
       'Oops, I did it again. There is a new bug.',
       'Please don\'t be sad but I\'ve some difficulties to answer you.'
     ]
-    div.innerText = errorText[ Math.round(Math.random() * errorText.length) ];
+    div.innerText = errorText[ Math.floor(Math.random() * errorText.length) ];
 
     console.log('*** /!\ There is an error /!\ ***');
     console.log(answer);

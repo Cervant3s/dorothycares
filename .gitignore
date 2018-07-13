@@ -1,12 +1,22 @@
+# To security
 srv/_config.php
 srv/_google-signin-client.php
 admin/srv/_config_admin.php
 admin/srv/_google-signin-client-admin.php
 .htaccess
 googlee7d9bc3d5475312b.html
+
+# To avoid useless conflict and space usage
 node_modules
-.ovhconfig
 firebase/functions/node_modules/*
+.ovhconfig
 NodeJS-API/nodemon.json
 .vscode/*
 .eslintrc.json
+
+# To the dev space on the server
+.bash_history
+.cache
+.pm2
+.ssh
+.sudo_as_admin_successful

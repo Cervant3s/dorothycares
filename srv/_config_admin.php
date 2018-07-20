@@ -1,5 +1,5 @@
 <?php
-  require_once('/srv/_config.php');
+  require_once('../srv/_config.php');
 
   /*  Function: securityCheck
 

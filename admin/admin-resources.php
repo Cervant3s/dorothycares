@@ -1,13 +1,13 @@
 <?php
   require_once '/srv/_config_admin.php';
 
-  // if (!isset($_SESSION['access_token'])) {
-  //   header('Location: login.php');
-  //   exit();
-  // } else {
-  //   header('Location: admin.php');
-  //   exit();
-  // }
+  if (!isset($_SESSION['access_token'])) {
+    header('Location: login.php');
+    exit();
+  } else {
+    // header('Location: admin.php');
+    // exit();
+  }
 
 
 ?>

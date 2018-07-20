@@ -5,8 +5,8 @@
     header('Location: login.php');
     exit();
   } else {
-    header('Location: admin.php');
-    exit();
+    // header('Location: admin.php');
+    // exit();
   }
 
   $iCount = (new Implantation($db))->getImplantationCount(); // number of implantations

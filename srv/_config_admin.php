@@ -19,7 +19,7 @@
   // General constants
   define('HOME_URL','https://dorothycares.ovh/');
   // define('SCRIPT_DIR','/home/tcbmediavc/dorothycares.io');
-  define('SCRIPT_DIR','.');
+  define('SCRIPT_DIR','..');
   define('VERSION','1.0.1 Beta');
 
   // we include the GoogeAPI files

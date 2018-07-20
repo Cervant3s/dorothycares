@@ -1,13 +1,7 @@
 <?php
   require_once '../srv/_config_admin.php';
 
-  if (!isset($_SESSION['access_token'])) { // security check
-    header('Location: login.php');
-    exit();
-  } else {
-    // header('Location: admin.php');
-    // exit();
-  }
+  securityCheck();
 
   $iCount = (new Implantation($db))->getImplantationCount(); // number of implantations
   $iNumberResults = 10; // you can change the number of results displayed here

@@ -1,10 +1,7 @@
 <?php
   require_once '/srv/_config_admin.php';
 
-  if (isset($_SESSION['access_token'])) { // security check
-    header('Location: login.php');
-    exit();
-  }
+  securityCheck();
 
   $loginURL = $gClientAdmin->createAuthUrl();
 ?>

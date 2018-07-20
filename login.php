@@ -3,8 +3,7 @@
   require_once "srv/_google-signin-client.php";
 
   if (isset($_SESSION['access_token'])) {
-    header('Location: '.HOME_URL.'login/');
-
+    header('Location: '.HOME_URL.'app/');
     exit();
   }
 

@@ -404,6 +404,3 @@ if (isset($_GET['dataToGet']) && is_string($_GET['dataToGet'])) { // security ch
   echo json_encode($json);
   die(); // we kill the script
 };
-
-
-?>

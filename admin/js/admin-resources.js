@@ -2,9 +2,11 @@
 let dataText = ''; // variable for the json response
 let jwt = ''; // variable for the json web token
 
+const tableBodyResources = document.querySelector('resourceTable');
+
 // AJAX requests
-let feedphp = 'ajax.php';
-let feednode = 'https://dorothycares.ovh/node-api/ressources/';
+const feedphp = 'ajax.php';
+const feednode = 'https://dorothycares.ovh/node-api/ressources/';
 let dataRequestGetJWT = new XMLHttpRequest(); // open ajax request to get the json web token
 let dataRequestDisplayResources = new XMLHttpRequest(); // open ajax request to display resources
 
@@ -33,9 +35,15 @@ const whenDataLoadedDisplayResources = () => { // what happens when the AJAX req
   dataObject = JSON.parse(dataText); // we convert the text into an object
 
   if (dataObject.message != 'undefined') {
+    let tableContent = '';
+
     dataObject.ressources.forEach((el) => {
-      console.log(el.displayName);
+      console.log(el);
+      tableContent += '<tr class="tooltipped">';
+      tableContent += '<td data-name="name" data-id="' + el.name + '">' + el.displayName + '</td>';
+      tableContent += '</tr>';
     });
+    tableBodyResources.innerHTML = tableContent;
   } else {
     console.log('hello');
   }

@@ -42,7 +42,7 @@ let confirmDeleteStartup = document.querySelector('#startupDeleteButton');
 let confirmDeleteUser = document.querySelector('#userDeleteButton');
 
 // AJAX requests
-let feed = 'ajax.php';
+const feed = 'ajax.php';
 let dataRequestDisplayContent = new XMLHttpRequest(); // open ajax request to display content
 let dataRequestCreateContent = new XMLHttpRequest(); // open ajax request to create content
 let dataRequestUpdateContent = new XMLHttpRequest(); // open ajax request to update content

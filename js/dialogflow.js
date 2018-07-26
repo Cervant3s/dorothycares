@@ -550,14 +550,15 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
 
         });
 
+    console.log("UserInstruction : ", NumberRequest);
 
 
   } else if (e.key == 'Enter' && userInstruction == '') {
 
     e.preventDefault();
-
+    
+    console.log("userInstruction empty : ", NumberRequest);
   }
-  console.log(NumberRequest);
 }
 /**
  * @event DOMContentLoaded

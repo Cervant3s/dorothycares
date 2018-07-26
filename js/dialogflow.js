@@ -388,14 +388,28 @@ function writeStartupMembersInfoModal(dataObject, contentBody) {
   contentBody.innerHTML = content;
 
 }
+/**
+ * @description nombres de requêtes (cf: launchDialogFlowConversation)
+ */
+let NumberRequest = {
+  total: 0,
+  dorothy: 0,
+  dialogflow: 0,
+  succed: 0,
+  failed: 0,
+  ressources: 0,
+  toolbox: 0,
+  text: 0,
+  list: 0
+}
 
 /**
  * @function launchDialogFlowConversation
  * @param {*} e 
- * @param {*} accessToken 
- * @param {*} baseUrl 
- * @param {*} version 
- * @param {*} emailUser 
+ * @param {string} accessToken 
+ * @param {string} baseUrl 
+ * @param {string} version 
+ * @param {string} emailUser 
  * @param {*} tokenUser 
  * @param {*} sessionId 
  * @description fonction PRINCIPAL qui reçoit la réponse de DialogFlow et la traite
@@ -417,6 +431,8 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
 
   if (e.key == 'Enter' && userInstruction != '') {
       e.preventDefault();
+      //number total request DialogFlow
+      NumberRequest.total++;
       document.querySelector('.user-input').setAttribute('contentEditable', false);
       document.querySelector('.terminal-control').parentNode.removeChild(document.querySelector('.terminal-control'));
 
@@ -433,6 +449,8 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
         sessionId: sessionId
       })
         .then(function (response) { // if request succeeded
+          //number request of successes
+          NumberRequest.succed++;
 
           //console.log(response);
           // we store the session for the context following
@@ -445,6 +463,8 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
 
           // we text if the answer is a JSON
           if ( isJsonString(dorothyAnswerText) ) {
+            //number request from DialogFlow
+            NumberRequest.dialogflow++;
 
             // we parse the JSON
             dorothyAnswerObject = JSON.parse(dorothyAnswerText);
@@ -452,6 +472,8 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
             if (dorothyAnswerObject.api === 'no-rel') {
 
               if (dorothyAnswerObject.type === 'ressources') {
+                //number request of ressources
+                NumberRequest.ressources++;
 
                 if (dorothyAnswerObject.modal === true) {
 
@@ -463,6 +485,8 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
                 }
 
               } else if (dorothyAnswerObject.type === 'toolbox') {
+                //nuber request of toolbox
+                NumberRequest.toolbox++;
 
                 if (dorothyAnswerObject.modal === true) {
 
@@ -479,10 +503,14 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
             } else if (dorothyAnswerObject.api === 'rel') {
 
               if (dorothyAnswerObject.type === 'text') {
+                //number request is text
+                NumberRequest.text++;
 
                 dorothyAnswerText = formatTextFromDorothy(dorothyAnswerObject.message);
 
               } else if (dorothyAnswerObject.type === 'list') {
+                //number request list
+                NumberRequest.list++;
 
                 if (dorothyAnswerObject.modal === true) {
 
@@ -501,18 +529,22 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
             addNewUserRequest('.instruction');
 
           } else { // if Dorothy answer a text
-
+            //number request from dorothy
+            NumberRequest.dorothy++;
+            
             dorothyAnswerText = formatTextFromDorothy(response.data.result.fulfillment.messages[0].speech);
             addDorothyAnswerText(dorothyAnswerText,'.user-request',false); // we display the answer
             addNewUserRequest('.instruction'); // we create a new entry section for the user
-
+            
           }
-
+          
           scrollDown();
-
+          
         })
         .catch(function (error) { // if the request failed
-
+          
+          //number request is failed
+          NumberRequest.failed++;
           addDorothyAnswerText(error,'.user-request',true); // we display the answer
           addNewUserRequest('.instruction'); // we create a new entry section for the user
 
@@ -525,7 +557,7 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
     e.preventDefault();
 
   }
-
+  console.log(NumberRequest);
 }
 /**
  * @event DOMContentLoaded

@@ -1,7 +1,7 @@
 <?php
   require_once '../srv/_config_admin.php';
 
-  securityCheck();
+  securityCheck(1);
 ?>
 
 <!DOCTYPE html>

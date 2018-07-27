@@ -1,7 +1,7 @@
 <?php
   require_once '../srv/_config_admin.php';
 
-  securityCheck();
+  securityCheck(2);
 
   $iCount = (new Implantation($db))->getImplantationCount(); // number of implantations
   $iNumberResults = 10; // you can change the number of results displayed here

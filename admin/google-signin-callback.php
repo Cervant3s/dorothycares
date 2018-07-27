@@ -1,5 +1,7 @@
 <?php
   require_once '../srv/_config_admin.php';
+  require_once '../srv/_google-signin-client.php';
+  $gClientAdmin = $gClient;
 
   if (isset($_SESSION['access_token'])) { // check if google access token exists
     $gClientAdmin->setAccessToken($_SESSION['access_token']); // set it

@@ -105,12 +105,13 @@ function addDorothyAnswerText(answer, selector, error = false) {
 
   let elements = document.querySelectorAll(selector);
   let div = document.createElement('div');
+  let response;
   div.classList.add('answer');
   elements[elements.length - 1].appendChild(div);
 
   if (!error) { // if no error
 
-    div.innerHTML = answer;
+    response = answer;
     //console.log(document.querySelectorAll(selector));
     //console.log(answer);
 
@@ -122,15 +123,48 @@ function addDorothyAnswerText(answer, selector, error = false) {
       'Oops, I did it again. There is a new bug.',
       'Please don\'t be sad but I\'ve some difficulties to answer you.'
     ]
-    div.innerText = errorText[ Math.floor(Math.random() * errorText.length) ];
+    response = errorText[ Math.floor(Math.random() * errorText.length) ];
 
     console.log('*** /!\ There is an error /!\ ***');
     console.log(answer);
     console.log('*** *** *** *** ***');
 
+    responsesToWrite.push(response);
+    addTypingResponse(response);
   }
 
 }
+
+let responsesToWrite = []; // Next thing(s) Dorothy must type
+let intervalTyping;
+const addTypingResponse = (text) => {
+  if(intervalTyping === undefined){
+    intervalTyping = setTimeout(typingResponse, 66);
+  }
+};
+
+const typingResponse = () => {
+  let div = document.querySelectorAll('.terminal-content>instruction:last-child()>.answer');
+  let text = responsesToWrite[0];
+
+  div.innerHTML += text[0];
+  console.log(text);
+  text = text.slice(1);
+  console.log(text);
+  if(text.length > 0){
+    responsesToWrite[0] = text;
+  }
+  else{
+    responsesToWrite.splice(0, 1);
+  }
+
+  if(responsesToWrite.length > 0){
+    intervalTyping = setTimeout(typingResponse, 66);
+  }
+  else{
+    intervalTyping = undefined;
+  }
+};
 
 /**
  * @function addNewUserRequest

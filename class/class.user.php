@@ -32,7 +32,21 @@ class User {
     }
 
   }
-
+  public function getAccessLevel($emailUser) {
+    try {
+      $accessLevelQuery = $this->db->prepare("SELECT accessLevel FROM userRight INNER JOIN user ON  userRight.idUser = user.idUser WHERE user.emailUser = :emailUser");
+      $accessLevelQuery->bindParam(':emailUser', $emailUser, PDO::PARAM_STR);
+      $accessLevelQuery->execute();
+      if($accessLevelQuery->rowCount()) {
+        return $accessLevelQuery->fetch();
+      } else {
+        return 0;
+      }
+    } catch (PDOException $e) {
+      print "Error !: " . $e->getMessage() . "<br/>";
+      die();
+    }
+  } 
   public function hasAdminRights($emailUser) {
     /*
     (IN) $emailUser: email of the user we want to test

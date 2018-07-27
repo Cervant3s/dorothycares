@@ -28,6 +28,6 @@ document.getElementById("FirstTheme").innerHTML = themeChoice[theme]
 
 
 // let divTheme = document.querySelector('.os-bar__theme');
-let linkCss = document.querySelector('#thatlink');
+let linkCss = document.querySelector('#source-css');
 // divTheme.addEventListener('click', switchTheme );
 

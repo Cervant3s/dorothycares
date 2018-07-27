@@ -1,5 +1,5 @@
 <?php
-  require_once 'srv/_config_admin.php';
+  require_once '../srv/_config_admin.php';
 
   $json = [];
   header('Access-Control-Allow-Origin: *'); // allow cross domains
@@ -404,6 +404,3 @@ if (isset($_GET['dataToGet']) && is_string($_GET['dataToGet'])) { // security ch
   echo json_encode($json);
   die(); // we kill the script
 };
-
-
-?>

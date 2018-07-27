@@ -1,5 +1,7 @@
 <?php
-  require_once 'srv/_config_admin.php';
+  require_once '../srv/_config_admin.php';
+  require_once '../srv/_google-signin-client.php';
+  $gClientAdmin = $gClient;
 
   if (isset($_SESSION['access_token'])) { // check if google access token exists
     $gClientAdmin->setAccessToken($_SESSION['access_token']); // set it
@@ -23,7 +25,7 @@
 
   $userTest = new User($db);
 
-  if ( $userTest->hasAdminRights($userData['email']) ) { // if user has admin rights
+  if ( $userTest->isBeCodeStaff($userData['email']) ) { // if user has admin rights
     include '../GoogleAPI/vendor/firebase/php-jwt/src/JWT.php'; // include json web token code
     $jwtInstance = new JWT(); // create new instance
     $payload = [

@@ -10,13 +10,16 @@
     if (!isset($_SESSION['access_token'])) {
       header('Location: ../login.php');
       exit();
-    } else {
+    }
+    else {
       global $db;
+
       $user = new User($db);
-      $accessLevel = $user->getAccessLevel($_SESSION['email']);
-      if (($level == NULL && $accessLevel > 0) || ($accessLevel == $level || $accessLevel == 3)) {
+      $accessLevel = intval($user->getAccessLevel($_SESSION['email']));
+      if (($level === NULL && $accessLevel > 0) || ($accessLevel === $level || $accessLevel === 3)) {
         //Access granted
-      } else {
+      }
+      else {
         header('Location: ../index.php');
         exit();
       } 

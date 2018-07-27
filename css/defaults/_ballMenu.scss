@@ -1,0 +1,131 @@
+/*
+-----------------------------------------------
+BALL & MENU
+-----------------------------------------------
+*/
+
+.dorothy-ball {
+    position: fixed;
+    bottom: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: inset 80px -10px 100px 5px $colorBall1, 0px 0px 100px -20px $colorBall2;
+    opacity: 0;
+    /* ------------ toggle maybe ------------ */
+    transition: box-shadow ease 0.5s;
+    &:hover {
+        box-shadow: inset -80px -10px 100px 5px $colorBallHover1, 40px -10px 100px -40px $collorBallHover2;
+    }
+}
+
+
+.ball-menu {
+    width: 350px;
+    height: 130px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.ball-menu-item {
+    width: 50px;
+    height: 50px;
+    background-color: $backgroundBallItem;
+    border: 2px solid $borderColorBallItem;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 5;
+    transition: background-color ease 0.3s;
+    &:hover {
+        background-color: $backgroundBallItemHover;
+    }
+    i {
+       position: relative;
+       top: 50%;
+       left: 50%;
+       -webkit-transform: translateX(-50%) translateY(-50%);
+       transform: translateX(-50%) translateY(-50%);
+       font-size: 20px;
+       color: $colorLogoBallItem;
+    }
+    &.menu-terminal {
+        top: 60px;
+        left: 0;
+        cursor: pointer;
+    }
+    &.menu-profile {
+        top: 0;
+        left: 87.5px;
+        cursor: pointer;
+    }
+    &.menu-info {
+        top: 0;
+        right: 87.5px;
+        cursor: pointer;
+    }
+    &.menu-calendar {
+        top: 60px;
+        right: 0;
+        background-color: $unavailableBallCalendar !important;
+    }
+}
+
+.ball-menu-item-label {
+    height: 70px;
+    width: 100px;
+    font-weight: 300;
+    text-align: center;
+    position: absolute;
+    transition: opacity ease 0.3s;
+    &.terminal-label {
+        opacity: 0;
+    }
+    &.profile-label {
+        opacity: 0;
+    }
+    &.info-label {
+        opacity: 0;
+    }
+    &.calendar-label {
+        opacity: 0;
+    }
+    &.terminal-label {
+        top: 30px;
+        left: -25px;
+    }
+    &.profile-label {
+        top: -30px;
+        left: 62px;
+    }
+    &.info-label {
+        top: -30px;
+        right: 62px;
+    }
+    &.calendar-label {
+        top: 30px;
+        right: -25px;
+    }
+}
+
+.menu-terminal:hover+.terminal-label {
+    opacity: 1;
+}
+
+.menu-profile:hover+.profile-label {
+    opacity: 1;
+}
+
+.menu-info:hover+.info-label {
+    opacity: 1;
+}
+
+.menu-calendar:hover+.calendar-label {
+    opacity: 1;
+}

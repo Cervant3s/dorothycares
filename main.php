@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300|Roboto:500" rel="stylesheet">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/themes/newMain.css">
 
   <title>DorothyCares <?= VERSION ?></title>
 
@@ -66,6 +66,16 @@
   <nav class="os-bar">
     <div class="os-bar__date-time"></div>
   </nav>
+  <ul id="menu-deroulant">
+    <li><button href="#" onclick="switchThemeBack()">Back</button><button href="#" onclick="switchThemeNext()">Next</button>
+      <ul>
+        <li><span id="FirstTheme"></span></li>
+        <!-- <li><a href="#" onclick="switchThemeBack()">Back</a></li>
+        <li><a href="#" onclick="switchThemeCalmMind()">?????</a></li>
+        <li><a href="#" onclick="switchThemeEco()">???????</a></li> -->
+      </ul>
+    </li>
+  </ul>
 
   <!-- Main ball -->
   <div class="dorothy-ball-container">
@@ -223,6 +233,7 @@
   <script src="/js/axios.min.js"></script> <!-- https://github.com/axios/axios -->
   <script src="/js/main.js"></script>
   <script src="/js/dialogflow.js"></script>
+  <script src="/js/theme.js"></script>
 
   <!--
   Dev var_dump

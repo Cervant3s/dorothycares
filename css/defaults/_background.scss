@@ -1,0 +1,92 @@
+/*
+-----------------------------------------------
+BACKGROUND
+-----------------------------------------------
+*/
+
+body {
+    padding: 0;
+    margin: 0;
+    color: $bodyColor;
+    background-image: url("../img/bg-doro5.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    font-family: $fontRobotoMono; 
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    -webkit-animation: bgColorAnim 300s infinite;
+    animation: bgColorAnim 300s infinite;
+}
+
+@-webkit-keyframes bgColorAnim {
+    0% {
+        background-color: $backgroundColor1;
+    }
+    20% {
+        background-color: $backgroundColor2;
+    }
+    35% {
+        background-color: $backgroundColor3;
+    }
+    55% {
+        background-color: $backgroundColor4;
+    }
+    70% {
+        background-color: $backgroundColor5;
+    }
+    85% {
+        background-color: $backgroundColor6;
+    }
+    100% {
+        background-color: $backgroundColor1;
+    }
+}
+
+@keyframes bgColorAnim {
+    0% {
+        background-color: $backgroundColor1;
+    }
+    20% {
+        background-color: $backgroundColor2;
+    }
+    35% {
+        background-color: $backgroundColor3;
+    }
+    55% {
+        background-color: $backgroundColor4;
+    }
+    70% {
+        background-color: $backgroundColor5;
+    }
+    85% {
+        background-color: $backgroundColor6;
+    }
+    100% {
+        background-color: $backgroundColor1;
+    }
+}
+
+/* -------- Background moving particles -------- */
+
+#canvas {
+    position: absolute;
+    display: block;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* -------- Background hiding div used to make elements unclickable -------- */
+
+.hiding-bg-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 11;
+    display: none;
+}

@@ -1,0 +1,98 @@
+/* -------- Top bar with date and time -------- */
+
+.os-bar {
+    text-align: right;
+    font-size: 22px;
+    position: fixed;
+    display: block;
+    flex-wrap: wrap;
+    width: 17%;
+    height: 50px;
+    padding: 7px 0px;
+    top: 10px;
+    color: $fontColorDateTime;
+    border-radius: 10px;
+    right: 15px;
+}
+
+// .os-bar__windows-item {
+//     cursor: pointer;
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     min-width: 25px;
+//     width: 20%;
+//     max-width: 250px;
+//     height: 100%;
+//     overflow: hidden;
+//     padding: 2px;
+//     color: rgba(255, 255, 255, 1);
+//     margin: 0px 5px;
+// }
+
+.os-bar__date-time {
+    position: absolute;
+    display: inline-block;
+    justify-content: left;
+    align-items: left;
+    right: 50px;
+    width: 120px;
+    height: 100%;
+    text-align: left;
+    font-size: 1em;
+    font-weight: 100;
+}
+
+.os-bar__theme {
+    display: inline-block;
+    text-align: left;
+    width: 90%;
+}
+
+#menu-deroulant {
+    padding:0;
+    margin:0;
+    list-style:none;
+    text-align: center;
+    width: 180px;
+    color: $fontColorMenuTheme;
+    ul {
+        padding:0;
+        margin:0;
+        list-style:none;
+        text-align: center;
+    }
+    li {     
+        border-radius: 6px;
+        margin-bottom:2px;    
+        li { 
+            max-height:0;
+            overflow: hidden;
+            transition: all .15s; 
+            border-radius:0;     
+            border:none;
+            margin:0;
+        }
+    }
+    a {
+        display:block;
+        text-decoration: none;
+        color: $fontColorMenuTheme;
+        padding: 8px 0;
+        font-family: $fontVerdana;
+        font-size:1.2em;
+    } 
+  }
+
+  #menu-deroulant ul li a, #menu-deroulant li:hover li a {
+    font-size:1em;
+  }
+
+  #menu-deroulant ul li:last-child {
+     border-radius: 0 0 6px 6px;
+     border:none;
+  }
+
+  #menu-deroulant li:hover li {
+    max-height: 15em;
+  }

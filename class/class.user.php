@@ -38,7 +38,8 @@ class User {
       $accessLevelQuery->bindParam(':emailUser', $emailUser, PDO::PARAM_STR);
       $accessLevelQuery->execute();
       if($accessLevelQuery->rowCount()) {
-        return $accessLevelQuery->fetch();
+        $data = $accessLevelQuery->fetch();
+        return $data[0];
       } else {
         return 0;
       }

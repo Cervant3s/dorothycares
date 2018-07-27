@@ -1,11 +1,6 @@
 <?php
   require_once('../srv/_config.php');
 
-  /*  Function: securityCheck
-
-      
-  */
-
   /**
    * Check if the user can access the admin space, otherwise redirection leads to index.
    * 

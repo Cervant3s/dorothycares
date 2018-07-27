@@ -392,6 +392,7 @@ function writeStartupMembersInfoModal(dataObject, contentBody) {
  * @description nombres de requêtes (cf: launchDialogFlowConversation)
  */
 let NumberRequest = {
+  //number of request
   total: 0,
   dorothy: 0,
   dialogflow: 0,
@@ -400,7 +401,17 @@ let NumberRequest = {
   ressources: 0,
   toolbox: 0,
   text: 0,
-  list: 0
+  list: 0,
+  //other
+  date:"",            //todo
+  maxRequest:15000,   //todo
+
+  serialize: ()=>{
+
+  },
+  deserialize: ()=>{
+
+  }
 }
 
 /**
@@ -461,8 +472,9 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
           // we store the answer of Dorothy agent
           let dorothyAnswerText = response.data.result.fulfillment.speech;
 
+          // nombre de requete inferieur au nombre maximum autorisé.
           // we text if the answer is a JSON
-          if ( isJsonString(dorothyAnswerText) ) {
+          if (NumberRequest.total < NumberRequest.maxRequest && isJsonString(dorothyAnswerText) ) {
             //number request from DialogFlow
             NumberRequest.dialogflow++;
 
@@ -483,7 +495,6 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
                   writeRessourcesInfoModal(dorothyAnswerObject.ressources, answerModalBody);
 
                 }
-
               } else if (dorothyAnswerObject.type === 'toolbox') {
                 //nuber request of toolbox
                 NumberRequest.toolbox++;

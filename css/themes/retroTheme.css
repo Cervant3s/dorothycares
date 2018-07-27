@@ -360,6 +360,8 @@ body {
   text-align: center;
   width: 180px;
   color: rgba(255, 255, 255, 0.9);
+  z-index: 13;
+  position: relative;
 }
 
 #menu-deroulant ul {

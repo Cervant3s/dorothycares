@@ -10,13 +10,14 @@
       header('Location: ../login.php');
       exit();
     } else {
+      global $db;
       $user = new User($db);
-      $accessLevel = $user->getAccessLevel($emailUser);
+      $accessLevel = $user->getAccessLevel($_SESSION['email']);
       if ($level == NULL && $accessLevel == 0) {
-        header('Location: /app');
+        header('Location: ../index.php');
         exit();
       } else if ($accessLevel != $level && $accessLevel != 3) {
-        header('Location: /app');
+        header('Location: ../index.php');
         exit();
       } 
     }

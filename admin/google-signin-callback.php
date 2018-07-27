@@ -25,7 +25,7 @@
 
   $userTest = new User($db);
 
-  if ( $userTest->hasAdminRights($userData['email']) ) { // if user has admin rights
+  if ( $userTest->isBeCodeStaff($userData['email']) ) { // if user has admin rights
     include '../GoogleAPI/vendor/firebase/php-jwt/src/JWT.php'; // include json web token code
     $jwtInstance = new JWT(); // create new instance
     $payload = [

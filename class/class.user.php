@@ -32,15 +32,27 @@ class User {
     }
 
   }
-  public function getAccessLevel($emailUser) {
+
+  /**
+   * Get the level access granted to the member
+   *
+   * @param string $emailUser The email of the user who want to get the access level
+   * @return int Return the level access (0 to 3)
+   */
+  public function getAccessLevel(string $emailUser) {
     try {
       $accessLevelQuery = $this->db->prepare("SELECT accessLevel FROM userRight INNER JOIN user ON  userRight.idUser = user.idUser WHERE user.emailUser = :emailUser");
       $accessLevelQuery->bindParam(':emailUser', $emailUser, PDO::PARAM_STR);
       $accessLevelQuery->execute();
+
       if($accessLevelQuery->rowCount()) {
         $data = $accessLevelQuery->fetch();
         return $data[0];
-      } else {
+      } else if($this->isBeCodeStaff($emailUser)){
+        // Staff and Coach don't have an access level by default, but if 'typeUser' is 'staff' or 'coach', we return 2 so they can access to managment
+        return 2;
+      }
+      else {
         return 0;
       }
     } catch (PDOException $e) {
@@ -48,14 +60,15 @@ class User {
       die();
     }
   } 
-  public function hasAdminRights($emailUser) {
-    /*
-    (IN) $emailUser: email of the user we want to test
-    (OUT) boolean: True if the user has admin rights / false if not
-    */
 
+  /**
+   * Check if the member is a coach or staff of BeCode
+   *
+   * @param string $emailUser
+   * @return bool True if the user is a coach or a staff
+   */
+  public function isBeCodeStaff(string $emailUser) {
     try {
-
       $statement = $this->db->prepare("SELECT emailUser, typeUser FROM user WHERE emailUser = :emailUser AND (typeUser LIKE 'coach' OR typeUser LIKE 'staff') LIMIT 0,1");
       $statement->bindParam(':emailUser', $emailUser, PDO::PARAM_STR);
       $statement->execute();
@@ -70,7 +83,6 @@ class User {
       print "Error !: " . $e->getMessage() . "<br/>";
       die();
     }
-
   }
 
   public function getUserId($emailUser) {

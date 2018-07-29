@@ -129,10 +129,8 @@ function addDorothyAnswerText(answer, selector, error = false) {
     console.log(answer);
     console.log('*** *** *** *** ***');
 
-    responsesToWrite.push(response);
-    addTypingResponse(response);
   }
-
+  addTypingResponse(response);
 }
 
 let responsesToWrite = []; // Next thing(s) Dorothy must type

@@ -122,7 +122,7 @@ function addDorothyAnswerText(answer, selector, error = false) {
       'OMG! My digital brain has some disturbances.',
       'Oops, I did it again. There is a new bug.',
       'Please don\'t be sad but I\'ve some difficulties to answer you.'
-    ]
+    ];
     response = errorText[ Math.floor(Math.random() * errorText.length) ];
 
     console.log('*** /!\ There is an error /!\ ***');
@@ -130,39 +130,43 @@ function addDorothyAnswerText(answer, selector, error = false) {
     console.log('*** *** *** *** ***');
 
   }
-  addTypingResponse(response);
+  addTypingResponse(response, div);
 }
 
 let responsesToWrite = []; // Next thing(s) Dorothy must type
 let intervalTyping;
-let addTypingResponse = (text) => {
-  responsesToWrite.push(text);
+
+let addTypingResponse = (text, div) => {
+  responsesToWrite.push([text, div]);
   if(intervalTyping === undefined){
-    intervalTyping = setTimeout(typingResponse, 66);
+    intervalTyping = setTimeout(typingResponse, typingSpeed());
   }
 };
 
 let typingResponse = () => {
-  let div = document.querySelectorAll('instruction:last-child>.answer');
-  let text = responsesToWrite[0];
+  let div = responsesToWrite[0][1];
+  let text = responsesToWrite[0][0];
 
   div.innerHTML += text[0];
-  console.log(text);
   text = text.slice(1);
-  console.log(text);
   if(text.length > 0){
-    responsesToWrite[0] = text;
+    responsesToWrite[0][0] = text;
   }
   else{
     responsesToWrite.splice(0, 1);
   }
 
   if(responsesToWrite.length > 0){
-    intervalTyping = setTimeout(typingResponse, 66);
+    intervalTyping = setTimeout(typingResponse, typingSpeed());
   }
   else{
     intervalTyping = undefined;
   }
+};
+
+let typingSpeed = ()=>{
+  const speedValue = (33 / (responsesToWrite.length + 1));
+  return Math.round((Math.random() * speedValue) + speedValue);
 };
 
 /**

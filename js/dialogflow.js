@@ -145,7 +145,7 @@ let addTypingResponse = (text) => {
 };
 
 let typingResponse = () => {
-  let div = document.querySelectorAll('.terminal-content>instruction:last-child()>.answer');
+  let div = document.querySelectorAll('instruction:last-child>.answer');
   let text = responsesToWrite[0];
 
   div.innerHTML += text[0];

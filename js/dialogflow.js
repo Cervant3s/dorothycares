@@ -137,13 +137,14 @@ function addDorothyAnswerText(answer, selector, error = false) {
 
 let responsesToWrite = []; // Next thing(s) Dorothy must type
 let intervalTyping;
-const addTypingResponse = (text) => {
+let addTypingResponse = (text) => {
+  responsesToWrite.push(text);
   if(intervalTyping === undefined){
     intervalTyping = setTimeout(typingResponse, 66);
   }
 };
 
-const typingResponse = () => {
+let typingResponse = () => {
   let div = document.querySelectorAll('.terminal-content>instruction:last-child()>.answer');
   let text = responsesToWrite[0];
 

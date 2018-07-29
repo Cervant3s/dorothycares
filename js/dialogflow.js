@@ -135,6 +135,7 @@ function addDorothyAnswerText(answer, selector, error = false) {
 
 let responsesToWrite = []; // Next thing(s) Dorothy must type
 let intervalTyping;
+let resonseIndex = 0;
 
 let addTypingResponse = (text, div) => {
   responsesToWrite.push([text, div]);
@@ -147,22 +148,65 @@ let typingResponse = () => {
   let div = responsesToWrite[0][1];
   let text = responsesToWrite[0][0];
 
-  div.innerHTML += text[0];
-  text = text.slice(1);
-  if(text.length > 0){
-    responsesToWrite[0][0] = text;
-  }
-  else{
-    responsesToWrite.splice(0, 1);
+  if(text[responseIndex] === '<'){
+    while(text[responseIndex] != '>'){
+      responseIndex++;
+    }
+    responseIndex++;
   }
 
-  if(responsesToWrite.length > 0){
-    intervalTyping = setTimeout(typingResponse, typingSpeed());
+  div.innerHTML = text.substring(0, responseIndex);
+
+  if(responseIndex >= text.length){
+    responsesToWrite.splice(0, 1);
   }
   else{
-    intervalTyping = undefined;
+    if(responsesToWrite.length > 0){
+      intervalTyping = setTimeout(typingResponse, typingSpeed());
+    }
+    else{
+      intervalTyping = undefined;
+    }
   }
 };
+
+// let typingResponse = () => {
+//   let div = responsesToWrite[0][1];
+//   let text = responsesToWrite[0][0];
+
+//   if(text[0] === '<'){
+//     let markup = "";
+    
+//     while(text[0] != '>'){
+//       markup += text[0];
+//       text = text.slice(1);
+//       console.log(markup);
+//     }
+//     markup += text[0];
+//     text = text.slice(1);
+
+//     div.innerHTML += markup;
+//   }
+//   else{
+//     div.innerHTML += text[0];
+//     text = text.slice(1);
+//   }
+
+//   if(text.length > 0){
+//     responsesToWrite[0][0] = text;
+//   }
+//   else{
+//     responsesToWrite.splice(0, 1);
+//   }
+//   console.log(div.innerHTML);
+
+//   if(responsesToWrite.length > 0){
+//     intervalTyping = setTimeout(typingResponse, typingSpeed());
+//   }
+//   else{
+//     intervalTyping = undefined;
+//   }
+// };
 
 let typingSpeed = ()=>{
   const speedValue = (33 / (responsesToWrite.length + 1));

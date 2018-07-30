@@ -13,12 +13,12 @@ BALL & MENU
     border-radius: 100%;
     z-index: 10;
     cursor: pointer;
-    box-shadow: inset 80px -10px 100px 5px $colorBall1, 0px 0px 100px -20px $colorBall2;
+    box-shadow: inset 80px -10px $colorBallDiffusion 5px $colorBall1, 0px 0px 100px -20px $colorBall2;
     opacity: 0;
     /* ------------ toggle maybe ------------ */
     transition: box-shadow ease 0.5s;
     &:hover {
-        box-shadow: inset -80px -10px 100px 5px $colorBallHover1, 40px -10px 100px -40px $collorBallHover2;
+        box-shadow: inset -80px -10px $colorBallDiffusionHover 5px $colorBallHover1, 40px -10px 100px -40px $collorBallHover2;
     }
 }
 

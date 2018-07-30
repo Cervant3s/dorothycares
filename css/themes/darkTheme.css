@@ -255,49 +255,49 @@ body {
 
 @-webkit-keyframes bgColorAnim {
   0% {
-    background-color: black;
+    background-color: #0e0f13;
   }
   20% {
     background-color: #121e2c;
   }
   35% {
-    background-color: #252a38;
+    background-color: #1e2e24;
   }
   55% {
-    background-color: #2c2026;
+    background-color: #2c202b;
   }
   70% {
-    background-color: #2b092e;
+    background-color: #160720;
   }
   85% {
     background-color: #0e0d0f;
   }
   100% {
-    background-color: black;
+    background-color: #0e0f13;
   }
 }
 
 @keyframes bgColorAnim {
   0% {
-    background-color: black;
+    background-color: #0e0f13;
   }
   20% {
     background-color: #121e2c;
   }
   35% {
-    background-color: #252a38;
+    background-color: #1e2e24;
   }
   55% {
-    background-color: #2c2026;
+    background-color: #2c202b;
   }
   70% {
-    background-color: #2b092e;
+    background-color: #160720;
   }
   85% {
     background-color: #0e0d0f;
   }
   100% {
-    background-color: black;
+    background-color: #0e0f13;
   }
 }
 
@@ -425,14 +425,14 @@ BALL & MENU
   border-radius: 100%;
   z-index: 10;
   cursor: pointer;
-  box-shadow: inset 80px -10px 100px 5px #feffff, 0px 0px 100px -20px #abddff;
+  box-shadow: inset 80px -10px 150px 5px #feffff, 0px 0px 100px -20px #abddff;
   opacity: 0;
   /* ------------ toggle maybe ------------ */
   transition: box-shadow ease 0.5s;
 }
 
 .dorothy-ball:hover {
-  box-shadow: inset -80px -10px 100px 5px #ecfbff, 40px -10px 100px -40px #dbdbdb;
+  box-shadow: inset -80px -10px 120px 5px #ecfbff, 40px -10px 100px -40px #dbdbdb;
 }
 
 .ball-menu {
@@ -581,7 +581,7 @@ WELCOME MESSAGE
 }
 
 .welcome-message-style:hover {
-  color: #b89f9f;
+  color: #8cbcd3;
 }
 
 /*
@@ -651,7 +651,7 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   animation: bgColorAnim 300s infinite;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  box-shadow: -1px 1px 80px -20px white;
+  box-shadow: -1px 1px 80px -20px #c3e9ff;
   transition: right ease 0.5s;
   z-index: 12;
 }
@@ -683,7 +683,7 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   /*background-color: white;*/
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  box-shadow: -1px 1px 120px -30px white;
+  box-shadow: -1px 1px 120px -30px #c3e9ff;
   transition: top ease 0.3s;
   z-index: 12;
   -webkit-animation: bgColorAnim 300s infinite;
@@ -831,7 +831,7 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 }
 
 .modal-body-title-icons a {
-  color: black;
+  color: #0e0f13;
 }
 
 .profile-details {
@@ -948,12 +948,12 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 .profile-add-details:hover {
   /* PROFILE MIKEY */
   background-color: white;
-  color: #232323;
+  color: #606974;
 }
 
 .profile-logout:hover {
   /* PROFILE MIKEY */
-  color: #e17474;
+  color: #c04a4a;
 }
 
 /* -------- Tooltip for logout button in profile modal -------- */
@@ -1008,7 +1008,7 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   left: -120%;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
-  box-shadow: -1px 1px 80px -30px white;
+  box-shadow: -1px 1px 80px -30px #c3e9ff;
   transition: left ease 0.5s;
   z-index: 11;
   -webkit-animation: bgColorAnim 300s infinite;
@@ -1336,7 +1336,7 @@ LOGIN PAGE
 #login-interface .welcome {
   font-weight: 100;
   font-size: 25px;
-  color: #b89f9f;
+  color: #8cbcd3;
 }
 
 #login-interface .google-button {

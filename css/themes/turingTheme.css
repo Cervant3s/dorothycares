@@ -425,14 +425,14 @@ BALL & MENU
   border-radius: 100%;
   z-index: 10;
   cursor: pointer;
-  box-shadow: inset 80px -10px 100px 5px #8ee7db, 0px 0px 100px -20px #abddff;
+  box-shadow: inset 80px -10px 120px 5px #8ee7db, 0px 0px 100px -20px #abddff;
   opacity: 0;
   /* ------------ toggle maybe ------------ */
   transition: box-shadow ease 0.5s;
 }
 
 .dorothy-ball:hover {
-  box-shadow: inset -80px -10px 100px 5px #9df0e5, 40px -10px 100px -40px #68b5b5;
+  box-shadow: inset -80px -10px 120px 5px #9df0e5, 40px -10px 100px -40px #68b5b5;
 }
 
 .ball-menu {

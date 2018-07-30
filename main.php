@@ -68,9 +68,8 @@
   </nav>
   <div id="theme-selector">
     <span class="theme-selector-title">Themes</span>
-    <span class="theme-selector-name">newMain</span>
     <span class="switch-left" onclick="switchTheme(-1)">&lt;</span>
-    <span class="switch-right" onclick="switchTheme(1)">&rg;</span>
+    <span class="switch-right" onclick="switchTheme(1)">&gt;</span>
   </div>
   <!-- <ul id="menu-deroulant">
     <li><button href="#" onclick="switchTheme(-1)">Back</button><button href="#" onclick="switchTheme(1)">Next</button>

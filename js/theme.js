@@ -82,8 +82,9 @@ let switchTheme = (step) => {
     else if (themeIndex < 0){
         themeIndex = themeChoice.length-1;
     }
-    linkCss.setAttribute("href", "/css/themes/"+themeChoice[theme]+".css");
-    document.getElementById("FirstTheme").innerHTML = themeChoice[theme];
+    linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex]+".css");
+    document.getElementById("FirstTheme").innerHTML = themeChoice[themeIndex];
+    fx.setText(themeChoice[themeIndex]);
 };
 
 let displayThemeController = ()=>{

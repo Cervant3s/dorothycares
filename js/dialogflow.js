@@ -109,28 +109,80 @@ function addDorothyAnswerText(answer, selector, error = false) {
   elements[elements.length - 1].appendChild(div);
 
   if (!error) { // if no error
-
-    div.innerHTML = answer;
-    //console.log(document.querySelectorAll(selector));
-    //console.log(answer);
-
+    addTypingResponse(answer, div);
   } else { // if error
-
-    let errorText = [
+    
+    const errorText = [
       'Sorry. There is a bug in my brain. Please try again!',
       'OMG! My digital brain has some disturbances.',
       'Oops, I did it again. There is a new bug.',
       'Please don\'t be sad but I\'ve some difficulties to answer you.'
-    ]
-    div.innerText = errorText[ Math.floor(Math.random() * errorText.length) ];
+    ];
+    addTypingResponse(errorText[ Math.floor(Math.random() * errorText.length) ], div);
 
     console.log('*** /!\ There is an error /!\ ***');
     console.log(answer);
     console.log('*** *** *** *** ***');
-
   }
-
 }
+
+let responsesToWrite = []; // Next thing(s) Dorothy must type (contains arrays : [the response (string), the div where we put the response])
+let intervalTyping;
+let responseIndex = 0;
+
+/**
+ * @function addTypingResponse 
+ * @description Add a response to type into the pile.
+ * @param {string} text The text to add
+ * @param {Element} div The div where we put the response
+ */
+const addTypingResponse = (text, div) => {
+  responsesToWrite.push([text, div]);
+  if(intervalTyping === undefined){
+    intervalTyping = setTimeout(typingResponse, typingSpeed());
+  }
+};
+/**
+ * @function typingResponse
+ * @description The function to Dorothy type the response. We call it into a 'timeout', again and again until Dorothy finish to type it.
+ */
+const typingResponse = () => {
+  let div = responsesToWrite[0][1];
+  let text = responsesToWrite[0][0];
+  
+  if(text[responseIndex] === '<'){
+    while(text[responseIndex] != '>'){
+      responseIndex++;
+    }
+    responseIndex++;
+  }
+  
+  div.innerHTML = text.substring(0, responseIndex);
+  
+  if(responseIndex >= text.length){
+    responseIndex = 0;
+    responsesToWrite.splice(0, 1);
+
+    if(responsesToWrite.length > 0){
+      intervalTyping = setTimeout(typingResponse, typingSpeed());
+    }
+    else{
+      intervalTyping = undefined;
+    }
+  }
+  else{
+    responseIndex++;
+    intervalTyping = setTimeout(typingResponse, typingSpeed());
+  }
+};
+/**
+ * @function typingSpeed
+ * @description Return the speed
+ */
+const typingSpeed = ()=>{
+  const speedValue = Math.floor(33 / (responsesToWrite[0].length + 1));
+  return Math.round((Math.random() * speedValue) + 5);
+};
 
 /**
  * @function addNewUserRequest

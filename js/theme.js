@@ -1,38 +1,7 @@
-let linkCss = document.querySelector('#source-css');
-let themeSelector = document.querySelector('#theme-selector');
-let themeChoice = ["newMain", "themeDebug", "darkTheme", "turingTheme", "retroTheme"];
-let themeIndex = 0;
-
-let switchTheme = (step) => {
-    themeIndex += step;
-    if(themeIndex == themeChoice.length){
-        themeIndex = 0;
-    }
-    else if (themeIndex < 0){
-        themeIndex = themeChoice.length-1;
-    }
-    linkCss.setAttribute("href", "/css/themes/"+themeChoice[theme]+".css");
-    document.getElementById("FirstTheme").innerHTML = themeChoice[theme];
-};
-
-let displayThemeController = ()=>{
-    console.log("Mouse in !");
-    fx.setText(themeChoice[themeIndex]);
-};
-let hideThemeController = ()=>{
-    console.log("Mouse out...");
-    fx.setText("Themes");
-};
-
-themeSelector.addEventListener('mouseenter', displayThemeController());
-themeSelector.addEventListener('mouseout', hideThemeController());
-
-
 /*
 TEXT SCRAMBLE
 _______________________________
 */
-
 class TextScramble {
     constructor(el) {
         this.el = el;
@@ -98,4 +67,33 @@ class TextScramble {
     }
 }
 
-const fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
+let linkCss = document.querySelector('#source-css');
+let themeSelector = document.querySelector('#theme-selector');
+let themeChoice = ["newMain", "themeDebug", "darkTheme", "turingTheme", "retroTheme"];
+let themeIndex = 0;
+let fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
+
+
+let switchTheme = (step) => {
+    themeIndex += step;
+    if(themeIndex == themeChoice.length){
+        themeIndex = 0;
+    }
+    else if (themeIndex < 0){
+        themeIndex = themeChoice.length-1;
+    }
+    linkCss.setAttribute("href", "/css/themes/"+themeChoice[theme]+".css");
+    document.getElementById("FirstTheme").innerHTML = themeChoice[theme];
+};
+
+let displayThemeController = ()=>{
+    console.log("Mouse in !");
+    fx.setText(themeChoice[themeIndex]);
+};
+let hideThemeController = ()=>{
+    console.log("Mouse out...");
+    fx.setText("Themes");
+};
+
+themeSelector.addEventListener('mouseenter', displayThemeController);
+themeSelector.addEventListener('mouseout', hideThemeController);

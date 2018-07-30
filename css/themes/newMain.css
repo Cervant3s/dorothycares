@@ -1474,6 +1474,7 @@ LOGIN PAGE
   position: fixed;
   top: 8px;
   left: 8px;
+  width: 100px;
   padding: 4px 12px;
   color: white;
   text-align: center;

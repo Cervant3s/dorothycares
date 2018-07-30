@@ -1493,15 +1493,12 @@ LOGIN PAGE
   height: auto;
 }
 
-#theme-selector:hover .theme-selector-title {
-  display: none;
-}
-
 #theme-selector .theme-selector-name {
   display: none;
 }
 
 #theme-selector .switch-left, #theme-selector .switch-right {
+  display: inline-block;
   width: 0;
   height: 0;
   overflow: hidden;

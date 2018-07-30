@@ -24,7 +24,6 @@ let hideThemeController = ()=>{
     fx.setText("Themes");
 };
 
-document.getElementById("FirstTheme").innerHTML = themeChoice[theme];
 themeSelector.addEventListener('mouseenter', displayThemeController());
 themeSelector.addEventListener('mouseout', hideThemeController());
 

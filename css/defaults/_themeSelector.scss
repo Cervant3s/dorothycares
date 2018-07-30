@@ -10,9 +10,7 @@
     border-radius: 16px;
 
     opacity: 0.3;
-
     animation: fade-out 1s linear 2s;
-
     transition: opacity 0.5s;
 
     &:hover{
@@ -23,10 +21,6 @@
             width: auto;
             height: auto;
         }
-
-        .theme-selector-title{
-            display: none;
-        }
     }
 
     .theme-selector-name{
@@ -34,6 +28,7 @@
     }
 
     .switch-left, .switch-right{
+        display: inline-block;
         width: 0;
         height: 0;
         overflow: hidden;

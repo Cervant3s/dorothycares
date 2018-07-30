@@ -232,7 +232,7 @@ body {
   padding: 0;
   margin: 0;
   color: white;
-  background-image: url("none");
+  background-image: url("../../img/bg-doro5.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -252,13 +252,13 @@ body {
     background-color: #121e2c;
   }
   35% {
-    background-color: #2e3446;
+    background-color: #252a38;
   }
   55% {
     background-color: #2c2026;
   }
   70% {
-    background-color: #330c36;
+    background-color: #2b092e;
   }
   85% {
     background-color: #0e0d0f;
@@ -276,13 +276,13 @@ body {
     background-color: #121e2c;
   }
   35% {
-    background-color: #2e3446;
+    background-color: #252a38;
   }
   55% {
     background-color: #2c2026;
   }
   70% {
-    background-color: #330c36;
+    background-color: #2b092e;
   }
   85% {
     background-color: #0e0d0f;
@@ -433,8 +433,8 @@ BALL & MENU
 }
 
 .dorothy-ball:hover {
-  -webkit-box-shadow: inset -80px -10px 100px 5px #ffffff, 40px -10px 100px -40px #bfc2c3;
-          box-shadow: inset -80px -10px 100px 5px #ffffff, 40px -10px 100px -40px #bfc2c3;
+  -webkit-box-shadow: inset -80px -10px 100px 5px #ecfbff, 40px -10px 100px -40px #dbdbdb;
+          box-shadow: inset -80px -10px 100px 5px #ecfbff, 40px -10px 100px -40px #dbdbdb;
 }
 
 .ball-menu {
@@ -461,7 +461,7 @@ BALL & MENU
 }
 
 .ball-menu-item:hover {
-  background-color: #645ea0;
+  background-color: #a09999;
 }
 
 .ball-menu-item i {
@@ -668,8 +668,8 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   animation: bgColorAnim 300s infinite;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  -webkit-box-shadow: -1px 1px 80px -20px #0D1321;
-          box-shadow: -1px 1px 80px -20px #0D1321;
+  -webkit-box-shadow: -1px 1px 80px -20px white;
+          box-shadow: -1px 1px 80px -20px white;
   -webkit-transition: right ease 0.5s;
   transition: right ease 0.5s;
   z-index: 12;
@@ -702,8 +702,8 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   /*background-color: white;*/
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  -webkit-box-shadow: -1px 1px 120px -30px #0D1321;
-          box-shadow: -1px 1px 120px -30px #0D1321;
+  -webkit-box-shadow: -1px 1px 120px -30px white;
+          box-shadow: -1px 1px 120px -30px white;
   -webkit-transition: top ease 0.3s;
   transition: top ease 0.3s;
   z-index: 12;
@@ -926,7 +926,7 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   margin-bottom: 1em;
   background: transparent;
   border: none;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid white;
   outline: none;
   width: 60%;
   font-family: "Roboto Mono", monospace;
@@ -1091,8 +1091,8 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   left: -120%;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
-  -webkit-box-shadow: -1px 1px 80px -30px #0D1321;
-          box-shadow: -1px 1px 80px -30px #0D1321;
+  -webkit-box-shadow: -1px 1px 80px -30px white;
+          box-shadow: -1px 1px 80px -30px white;
   -webkit-transition: left ease 0.5s;
   transition: left ease 0.5s;
   z-index: 11;
@@ -1390,7 +1390,7 @@ button:focus {
       margin:0px 6px 0px 2px;
   }*/
 .answer {
-  color: #ffffff;
+  color: #b3dcdf;
   margin-top: 15px;
 }
 
@@ -1486,7 +1486,7 @@ LOGIN PAGE
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: white;
+  background-color: black;
   -webkit-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
@@ -1504,7 +1504,7 @@ LOGIN PAGE
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: white;
+  background-color: black;
   border-radius: 100%;
 }
 
@@ -1523,7 +1523,7 @@ LOGIN PAGE
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: #ffffff;
+  background: #1e1f24;
   padding: 1em;
   border: none;
   cursor: pointer;
@@ -1548,7 +1548,7 @@ LOGIN PAGE
   top: var(--y);
   width: var(--size);
   height: var(--size);
-  background: radial-gradient(circle closest-side, #ffffff, transparent);
+  background: radial-gradient(circle closest-side, #83a09e, transparent);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   -webkit-transition: width .2s ease, height .2s ease;
@@ -1609,5 +1609,9 @@ LOGIN PAGE
     display: none;
   }
   /**/
+}
+
+.answer {
+  text-shadow: 0px 0px 10px #abddff;
 }
 /*# sourceMappingURL=darkTheme.css.map */

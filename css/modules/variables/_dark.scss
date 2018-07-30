@@ -6,14 +6,11 @@ $fontVerdana: 'verdana';
 
 // Background Fog Colors && First Color Charte
 
-$bgDorothyImg: "none";
-
-
 $backgroundColor1: black; // <== base color / ref color
 $backgroundColor2: rgb(18, 30, 44);
-$backgroundColor3: #2e3446;
+$backgroundColor3: #252a38;
 $backgroundColor4: #2c2026;
-$backgroundColor5: #330c36;
+$backgroundColor5: #2b092e;
 $backgroundColor6: rgb(14, 13, 15);
 
 $bodyColor: rgb(255, 255, 255); // base fontColor for the body
@@ -21,10 +18,10 @@ $bodyColor: rgb(255, 255, 255); // base fontColor for the body
 // loading page - call to action
 
 $fontColorCallToAction: white;
-$backgroundCallToAction: #ffffff;
-$backgroundCallToAction2: white;
-$backgroundCallToActionHover: #ffffff; 
-$backgroundLogoCallToAction: white; // <== background color logo google
+$backgroundCallToAction: #1e1f24;
+$backgroundCallToAction2: rgb(0, 0, 0);
+$backgroundCallToActionHover: #83a09e; 
+$backgroundLogoCallToAction: rgb(0, 0, 0); // <== background color logo google
 
 // Interface
 
@@ -37,15 +34,15 @@ $fontSizeWelcomeMessage: 25px;
 
 // Terminal
 
-$fontColorDorothyAnswer: #ffffff; 
+$fontColorDorothyAnswer: #b3dcdf; 
 
 // Modal
 
 $fontColorModal: white; // Global font color for modal
 
 $fontColorModalCreators: lightgray; 
-$colorBoxShadowModal: #0D1321;
-$underlineProfileInput: 1px solid black;
+$colorBoxShadowModal: rgb(255, 255, 255);
+$underlineProfileInput: 1px solid rgb(255, 255, 255);
 
 $logoutButton: $fontColorModal;
 $logoutButtonHover: #e17474;
@@ -62,11 +59,11 @@ $backgroundSaveButtonHover: $fontColorModal;
 
 $colorBall1: #feffff; 
 $colorBall2: #abddff; 
-$colorBallHover1: #ffffff; 
-$collorBallHover2: #bfc2c3; 
+$colorBallHover1: #ecfbff; 
+$collorBallHover2: #dbdbdb; 
 
 $backgroundBallItem: rgba(255, 255, 255, 0.12); // Ball Menu - Icones Periph 
-$backgroundBallItemHover: #645ea0;
+$backgroundBallItemHover: #a09999;
 $borderColorBallItem: white;
 $colorLogoBallItem: white;
 $unavailableBallCalendar: lightgrey;

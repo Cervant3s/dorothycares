@@ -77,6 +77,9 @@ let fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
 let switchTheme = (switchTo) => {
     if(typeof switchTo == 'number'){
         themeIndex = (themeIndex + switchTo) % themeChoice.length;
+        if(themeIndex < 0){
+            themeIndex = themeChoice.length - 1;
+        }
     }
     else if(typeof switchTo == 'string'){
         for(let i = themeChoice.length - 1; i >= 0; i--){

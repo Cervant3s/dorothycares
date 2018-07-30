@@ -67,18 +67,21 @@
     <div class="os-bar__date-time"></div>
   </nav>
   <div id="theme-selector">
-    Themes
+    <span class="theme-selector-title">Themes</span>
+    <span class="theme-selector-name">newMain</span>
+    <span class="switch-left" onclick="switchTheme(-1)">&lt;</span>
+    <span class="switch-right" onclick="switchTheme(1)">&rg;</span>
   </div>
-  <ul id="menu-deroulant">
+  <!-- <ul id="menu-deroulant">
     <li><button href="#" onclick="switchTheme(-1)">Back</button><button href="#" onclick="switchTheme(1)">Next</button>
       <ul>
         <li><span id="FirstTheme"></span></li>
-        <!-- <li><a href="#" onclick="switchThemeBack()">Back</a></li>
+        <li><a href="#" onclick="switchThemeBack()">Back</a></li>
         <li><a href="#" onclick="switchThemeCalmMind()">?????</a></li>
-        <li><a href="#" onclick="switchThemeEco()">???????</a></li> -->
+        <li><a href="#" onclick="switchThemeEco()">???????</a></li>
       </ul>
     </li>
-  </ul>
+  </ul> -->
 
   <!-- Main ball -->
   <div class="dorothy-ball-container">

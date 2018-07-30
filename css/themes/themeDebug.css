@@ -1474,10 +1474,10 @@ LOGIN PAGE
   position: fixed;
   top: 8px;
   left: 8px;
-  padding: 8px 16px;
+  padding: 4px 12px;
   color: blue;
-  border: 1px solid rgba(0, 0, 255, 0.6);
-  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 255, 0.4);
+  border-radius: 16px;
   opacity: 0.3;
   animation: fade-out 1s linear 2s;
   transition: opacity 0.5s;
@@ -1486,5 +1486,28 @@ LOGIN PAGE
 #theme-selector:hover {
   opacity: 1;
   cursor: pointer;
+}
+
+#theme-selector:hover .switch-left, #theme-selector:hover .switch-right {
+  display: inline-block;
+  opacity: 1;
+}
+
+#theme-selector:hover .theme-selector-title {
+  display: none;
+}
+
+#theme-selector:hover .theme-selector-name {
+  display: inline-block;
+}
+
+#theme-selector .theme-selector-name {
+  display: none;
+}
+
+#theme-selector .switch-left, #theme-selector .switch-right {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 /*# sourceMappingURL=themeDebug.css.map */

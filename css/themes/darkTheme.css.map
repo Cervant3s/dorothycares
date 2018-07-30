@@ -19,6 +19,7 @@
         "../defaults/_terminal.scss",
         "../defaults/_loadingPage.scss",
         "../defaults/_mediaQueries.scss",
+        "../defaults/_themeSelector.scss",
         "../dark/_all.scss",
         "../dark/_terminal.scss"
     ],

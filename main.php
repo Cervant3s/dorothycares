@@ -66,6 +66,9 @@
   <nav class="os-bar">
     <div class="os-bar__date-time"></div>
   </nav>
+  <div id="theme-selector">
+    Themes
+  </div>
   <ul id="menu-deroulant">
     <li><button href="#" onclick="switchTheme(-1)">Back</button><button href="#" onclick="switchTheme(1)">Next</button>
       <ul>

@@ -1,0 +1,22 @@
+#theme-selector{
+    position: fixed;
+    top: 8px;
+    left: 8px;
+
+    padding: 8px 16px;
+    color: $fontColorCallToAction;
+
+    border: 1px solid rgba($fontColorCallToAction, 0.6);
+    border-radius: 8px;
+
+    opacity: 0.3;
+
+    animation: fade-out 1s linear 2s;
+
+    transition: opacity 0.5s;
+
+    &:hover{
+        opacity: 1;
+        cursor: pointer;
+    }
+}

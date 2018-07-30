@@ -87,13 +87,11 @@ let switchTheme = (step) => {
 };
 
 let displayThemeController = ()=>{
-    console.log("Mouse in !");
     fx.setText(themeChoice[themeIndex]);
 };
 let hideThemeController = ()=>{
-    console.log("Mouse out...");
     fx.setText("Themes");
 };
 
-themeSelector.addEventListener('mouseenter', displayThemeController);
-themeSelector.addEventListener('mouseout', hideThemeController);
+themeSelector.addEventListener('mouseover', displayThemeController);
+themeSelector.addEventListener('mouseleave', hideThemeController);

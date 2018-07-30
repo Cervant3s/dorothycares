@@ -56,14 +56,14 @@ class TextScramble {
         }
         this.el.innerHTML = output;
         if (complete === this.queue.length) {
-        this.resolve();
+            this.resolve();
         } else {
-        this.frameRequest = requestAnimationFrame(this.update);
-        this.frame++;
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
         }
     }
     randomChar() {
-      return this.chars[Math.floor(Math.random() * this.chars.length)];
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
     }
 }
 
@@ -83,7 +83,7 @@ let switchTheme = (step) => {
         themeIndex = themeChoice.length-1;
     }
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex]+".css");
-    document.getElementById("FirstTheme").innerHTML = themeChoice[themeIndex];
+    document.querySelector('.theme-selector-title').innerHTML = themeChoice[themeIndex];
     fx.setText(themeChoice[themeIndex]);
 };
 

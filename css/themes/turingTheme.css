@@ -1489,8 +1489,7 @@ LOGIN PAGE
 }
 
 #theme-selector:hover .switch-left, #theme-selector:hover .switch-right {
-  width: auto;
-  height: auto;
+  opacity: 1;
 }
 
 #theme-selector .theme-selector-name {
@@ -1498,11 +1497,8 @@ LOGIN PAGE
 }
 
 #theme-selector .switch-left, #theme-selector .switch-right {
-  display: inline-block;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  transition: width 0.5s;
+  opacity: 0;
+  transition: opacity 0.6;
 }
 
 .modal-body-title {

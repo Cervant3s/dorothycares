@@ -71,16 +71,6 @@
     <span class="theme-selector-title">Themes</span>
     <span class="switch-right fa fa-caret-right" onclick="switchTheme(1)">&gt;</span>
   </div>
-  <!-- <ul id="menu-deroulant">
-    <li><button href="#" onclick="switchTheme(-1)">Back</button><button href="#" onclick="switchTheme(1)">Next</button>
-      <ul>
-        <li><span id="FirstTheme"></span></li>
-        <li><a href="#" onclick="switchThemeBack()">Back</a></li>
-        <li><a href="#" onclick="switchThemeCalmMind()">?????</a></li>
-        <li><a href="#" onclick="switchThemeEco()">???????</a></li>
-      </ul>
-    </li>
-  </ul> -->
 
   <!-- Main ball -->
   <div class="dorothy-ball-container">

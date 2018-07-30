@@ -241,7 +241,7 @@ body {
   padding: 0;
   margin: 0;
   color: white;
-  background-image: url("../../img/bg-doro5.png");
+  background-image: url("/img/bg-doro5.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -1476,14 +1476,16 @@ LOGIN PAGE
   left: 8px;
   padding: 4px 12px;
   color: white;
+  text-align: center;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 16px;
   opacity: 0.3;
   animation: fade-out 1s linear 2s;
-  transition: opacity 0.5s;
+  transition: width 0.5s, opacity 0.5s;
 }
 
 #theme-selector:hover {
+  width: 200px;
   opacity: 1;
   cursor: pointer;
 }
@@ -1498,6 +1500,14 @@ LOGIN PAGE
 
 #theme-selector .switch-left, #theme-selector .switch-right {
   opacity: 0;
-  transition: opacity 0.6;
+  transition: opacity 0.6s;
+}
+
+#theme-selector .switch-left {
+  float: left;
+}
+
+#theme-selector .switch-right {
+  float: right;
 }
 /*# sourceMappingURL=newMain.css.map */

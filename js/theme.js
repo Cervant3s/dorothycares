@@ -74,14 +74,18 @@ let themeIndex = 0;
 let fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
 
 
-let switchTheme = (step) => {
-    themeIndex += step;
-    if(themeIndex == themeChoice.length){
-        themeIndex = 0;
+let switchTheme = (switchTo) => {
+    if(typeof switchTo == 'number'){
+        themeIndex = (themeIndex + switchTo) % themeChoice.length;
     }
-    else if (themeIndex < 0){
-        themeIndex = themeChoice.length-1;
+    else if(typeof switchTo == 'string'){
+        for(let i = themeChoice.length - 1; i >= 0; i--){
+            if(themeChoice[i] == switchTo){
+                themeIndex = i;
+            }
+        }
     }
+
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex]+".css");
     document.querySelector('.theme-selector-title').innerHTML = themeChoice[themeIndex];
     fx.setText(themeChoice[themeIndex]);

@@ -109,7 +109,9 @@ let themeSelectorSetup = ()=>{
         let listItem = document.createElement('li');
         listItem.innerHTML = "<span>" + theme + "</span>";
         themeList.appendChild(listItem);
-        listItem.addEventListener('click', switchTheme(theme));
+        listItem.addEventListener('click', ()=>{
+            switchTheme(theme);
+        });
     });
 };
 themeSelectorSetup();

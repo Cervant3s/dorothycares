@@ -90,7 +90,6 @@ let switchTheme = (switchTo) => {
     }
 
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex]+".css");
-    document.querySelector('.theme-selector-title').innerHTML = themeChoice[themeIndex];
     fx.setText(themeChoice[themeIndex]);
 };
 
@@ -101,5 +100,16 @@ let hideThemeController = ()=>{
     fx.setText("Themes");
 };
 
-themeSelector.addEventListener('mouseover', displayThemeController);
-themeSelector.addEventListener('mouseleave', hideThemeController);
+let themeSelectorSetup = ()=>{
+    themeSelector.addEventListener('mouseover', displayThemeController);
+    themeSelector.addEventListener('mouseleave', hideThemeController);
+
+    let themeList = themeSelector.querySelector('ul');
+    themeChoice.forEach(theme => {
+        let listItem = document.createElement('li');
+        listItem.innerHTML = "<span>" + theme + "</span>";
+        themeList.appendChild(listItem);
+        listItem.addEventListener('click', switchTheme(theme));
+    });
+};
+themeSelectorSetup();

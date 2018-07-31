@@ -69,6 +69,7 @@
   <div id="theme-selector">
     <span class="switch-left fa fa-caret-left" onclick="switchTheme(-1)"></span>
     <span class="theme-selector-title">Themes</span>
+    <ul></ul>
     <span class="switch-right fa fa-caret-right" onclick="switchTheme(1)"></span>
   </div>
 

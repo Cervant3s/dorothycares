@@ -13,7 +13,7 @@
 
     opacity: 0.3;
     animation: fade-out 1s linear 2s;
-    transition: width 0.5s, opacity 0.5s;
+    transition: width 0.3s, height 0.3s, opacity 0.3s;
 
     &:hover{
         width: 200px;
@@ -21,6 +21,10 @@
         cursor: pointer;
 
         .switch-left, .switch-right{
+            opacity: 1;
+        }
+
+        ul{
             opacity: 1;
         }
     }
@@ -35,4 +39,33 @@
     }
     .switch-left{ float: left; }
     .switch-right{ float: right; }
+
+    ul, li{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style: none;
+        cursor: default;
+        opacity: 0;
+
+        transition: opacity 0.5s;
+    }
+
+    li{
+        padding: 6px 0;
+        border-bottom: 1px solid $fontColorCallToAction;
+        color: rgba($fontColorCallToAction, 0.4);
+
+        &:hover{
+            color: $fontColorCallToAction;
+        }
+
+        span:hover{
+            cursor: pointer;
+        }
+    }
 }

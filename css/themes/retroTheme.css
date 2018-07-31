@@ -1482,7 +1482,7 @@ LOGIN PAGE
   border-radius: 16px;
   opacity: 0.3;
   animation: fade-out 1s linear 2s;
-  transition: width 0.5s, opacity 0.5s;
+  transition: width 0.3s, height 0.3s, opacity 0.3s;
 }
 
 #theme-selector:hover {
@@ -1492,6 +1492,10 @@ LOGIN PAGE
 }
 
 #theme-selector:hover .switch-left, #theme-selector:hover .switch-right {
+  opacity: 1;
+}
+
+#theme-selector:hover ul {
   opacity: 1;
 }
 
@@ -1510,5 +1514,34 @@ LOGIN PAGE
 
 #theme-selector .switch-right {
   float: right;
+}
+
+#theme-selector ul, #theme-selector li {
+  margin: 0;
+  padding: 0;
+}
+
+#theme-selector ul {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  list-style: none;
+  cursor: default;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+#theme-selector li {
+  padding: 6px 0;
+  border-bottom: 1px solid white;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+#theme-selector li:hover {
+  color: white;
+}
+
+#theme-selector li span:hover {
+  cursor: pointer;
 }
 /*# sourceMappingURL=retroTheme.css.map */

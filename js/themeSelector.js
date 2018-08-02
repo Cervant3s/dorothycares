@@ -134,6 +134,18 @@ const hideThemeController = (event)=>{
     if(hoverThemeSelector){
         fx.setText("Themes");
         hoverThemeSelector = false;
+        toggleThemesList(false);
+    }
+};
+let toggleThemesList = (forced)=>{
+    let list = themeSelector.querySelector('ul');
+    if((forced !== undefined && forced == true) || list.style.opacity == '1'){
+        list.style.display = '';
+        list.style.opacity = '';
+    }
+    else if(forced === undefined || forced == false){
+        list.style.display = 'block';
+        list.style.opacity = '1';
     }
 };
 /**
@@ -143,6 +155,7 @@ const hideThemeController = (event)=>{
 const themeSelectorSetup = ()=>{
     themeSelector.addEventListener('mouseover', displayThemeController);
     themeSelector.addEventListener('mouseleave', hideThemeController);
+    themeSelector.querySelector('.theme-selector-title').addEventListener('click', toggleThemesList);
 
     let themeList = themeSelector.querySelector('ul');
     themeChoice.forEach(theme => {

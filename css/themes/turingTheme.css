@@ -1522,6 +1522,7 @@ LOGIN PAGE
 }
 
 #theme-selector ul {
+  display: none;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);

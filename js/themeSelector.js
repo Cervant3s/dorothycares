@@ -67,8 +67,8 @@ class TextScramble {
     }
 }
 
-let linkCss = document.querySelector('#source-css');
-let themeSelector = document.querySelector('#theme-selector');
+const linkCss = document.querySelector('#source-css');
+const themeSelector = document.querySelector('#theme-selector');
 const themeChoice = [
     {
         publicName: "Legacy",
@@ -87,10 +87,14 @@ const themeChoice = [
         fileName: "retroTheme"
     }];
 let themeIndex = 0;
-let fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
-let hoverCount = 0;
-
-let switchTheme = (switchTo) => {
+const fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
+let hoverThemeSelector = false;
+/**
+ * @function switchTheme
+ * @description Change for another theme
+ * @param {int|string} switchTo If 'int', switch to many theme before or after; if 'string', it must be a theme name
+ */
+const switchTheme = (switchTo) => {
     if(typeof switchTo == 'number'){
         themeIndex = (themeIndex + switchTo) % themeChoice.length;
         if(themeIndex < 0){
@@ -108,23 +112,35 @@ let switchTheme = (switchTo) => {
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex].fileName +".css");
     fx.setText(themeChoice[themeIndex].publicName);
 };
-let displayThemeController = ()=>{
-    if(hoverCount === 0){
+/**
+ * @function displayThemeController
+ * @description Display the theme controller
+ */
+const displayThemeController = ()=>{
+    if(!hoverThemeSelector){
         fx.setText(themeChoice[themeIndex].publicName);
-        hoverCount++;
+        hoverThemeSelector = true;
     }
 };
-let hideThemeController = (event)=>{
+/**
+ * @function hideThemeController
+ * @description Hide the theme controller
+ */
+const hideThemeController = (event)=>{
     let e = event.toElement || event.relatedTarget;
     if(e.parentNode == this || e == this){
         return;
     }
-    if(hoverCount > 0){
+    if(hoverThemeSelector){
         fx.setText("Themes");
-        hoverCount = 0;
+        hoverThemeSelector = false;
     }
 };
-let themeSelectorSetup = ()=>{
+/**
+ * @function themeSelectorSetup
+ * @description Setup all requirements for the theme selector.
+ */
+const themeSelectorSetup = ()=>{
     themeSelector.addEventListener('mouseover', displayThemeController);
     themeSelector.addEventListener('mouseleave', hideThemeController);
 

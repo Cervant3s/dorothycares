@@ -72,7 +72,7 @@ let themeSelector = document.querySelector('#theme-selector');
 let themeChoice = ["newMain", "themeDebug", "darkTheme", "turingTheme", "retroTheme"];
 let themeIndex = 0;
 let fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
-
+let hoverCount = 0;
 
 let switchTheme = (switchTo) => {
     if(typeof switchTo == 'number'){
@@ -92,14 +92,22 @@ let switchTheme = (switchTo) => {
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex]+".css");
     fx.setText(themeChoice[themeIndex]);
 };
-
 let displayThemeController = ()=>{
-    fx.setText(themeChoice[themeIndex]);
+    if(hoverCount === 0){
+        fx.setText(themeChoice[themeIndex]);
+        console.log("Show theme name");
+    }
+    hoverCount++;
+    console.log(hoverCount);
 };
 let hideThemeController = ()=>{
-    fx.setText("Themes");
+    if(hoverCount === 1){
+        fx.setText("Themes");
+        console.log("Hide theme name");
+    }
+    hoverCount--;
+    console.log(hoverCount);
 };
-
 let themeSelectorSetup = ()=>{
     themeSelector.addEventListener('mouseover', displayThemeController);
     themeSelector.addEventListener('mouseleave', hideThemeController);

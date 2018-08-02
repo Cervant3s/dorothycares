@@ -96,16 +96,20 @@ let displayThemeController = ()=>{
     if(hoverCount === 0){
         fx.setText(themeChoice[themeIndex]);
         console.log("Show theme name");
+        hoverCount++;
     }
-    hoverCount++;
     console.log(hoverCount);
 };
-let hideThemeController = ()=>{
-    if(hoverCount === 1){
+let hideThemeController = (event)=>{
+    let e = event.toElement || event.relatedTarget;
+    if(e.parentNode == this || e == this){
+        return;
+    }
+    if(hoverCount > 0){
         fx.setText("Themes");
         console.log("Hide theme name");
+        hoverCount = 0;
     }
-    hoverCount--;
     console.log(hoverCount);
 };
 let themeSelectorSetup = ()=>{

@@ -229,7 +229,7 @@
   <script src="/js/axios.min.js"></script> <!-- https://github.com/axios/axios -->
   <script src="/js/main.js"></script>
   <script src="/js/dialogflow.js"></script>
-  <script src="/js/theme.js"></script>
+  <script src="/js/themeSelector.js"></script>
 
   <!--
   Dev var_dump

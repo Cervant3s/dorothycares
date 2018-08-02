@@ -69,7 +69,23 @@ class TextScramble {
 
 let linkCss = document.querySelector('#source-css');
 let themeSelector = document.querySelector('#theme-selector');
-let themeChoice = ["newMain", "themeDebug", "darkTheme", "turingTheme", "retroTheme"];
+const themeChoice = [
+    {
+        publicName: "Legacy",
+        fileName: "newMain"
+    }, {
+        publicName: "Debug",
+        fileName: "themeDebug"
+    }, {
+        publicName: "Night",
+        fileName: "darkTheme"
+    }, {
+        publicName: "Standard",
+        fileName: "turingTheme"
+    }, {
+        publicName: "Retro",
+        fileName: "retroTheme"
+    }];
 let themeIndex = 0;
 let fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
 let hoverCount = 0;
@@ -83,22 +99,20 @@ let switchTheme = (switchTo) => {
     }
     else if(typeof switchTo == 'string'){
         for(let i = themeChoice.length - 1; i >= 0; i--){
-            if(themeChoice[i] == switchTo){
+            if(themeChoice[i].fileName == switchTo){
                 themeIndex = i;
             }
         }
     }
 
-    linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex]+".css");
-    fx.setText(themeChoice[themeIndex]);
+    linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex].fileName +".css");
+    fx.setText(themeChoice[themeIndex].publicName);
 };
 let displayThemeController = ()=>{
     if(hoverCount === 0){
-        fx.setText(themeChoice[themeIndex]);
-        console.log("Show theme name");
+        fx.setText(themeChoice[themeIndex].publicName);
         hoverCount++;
     }
-    console.log(hoverCount);
 };
 let hideThemeController = (event)=>{
     let e = event.toElement || event.relatedTarget;
@@ -107,10 +121,8 @@ let hideThemeController = (event)=>{
     }
     if(hoverCount > 0){
         fx.setText("Themes");
-        console.log("Hide theme name");
         hoverCount = 0;
     }
-    console.log(hoverCount);
 };
 let themeSelectorSetup = ()=>{
     themeSelector.addEventListener('mouseover', displayThemeController);
@@ -119,10 +131,10 @@ let themeSelectorSetup = ()=>{
     let themeList = themeSelector.querySelector('ul');
     themeChoice.forEach(theme => {
         let listItem = document.createElement('li');
-        listItem.innerHTML = "<span>" + theme + "</span>";
+        listItem.innerHTML = "<span>" + theme.publicName + "</span>";
         themeList.appendChild(listItem);
         listItem.addEventListener('click', ()=>{
-            switchTheme(theme);
+            switchTheme(theme.fileName);
         });
     });
 };

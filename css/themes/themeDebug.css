@@ -1513,7 +1513,6 @@ LOGIN PAGE
   transform: translateX(-50%);
   list-style: none;
   cursor: default;
-  opacity: 0;
   transition: opacity 0.5s;
 }
 
@@ -1521,6 +1520,8 @@ LOGIN PAGE
   padding: 6px 0;
   border-bottom: 1px solid blue;
   color: rgba(0, 0, 255, 0.4);
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
 #theme-selector li:hover {

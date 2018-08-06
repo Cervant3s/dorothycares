@@ -89,6 +89,7 @@ const themeChoice = [
 let themeIndex = 0;
 const fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
 let hoverThemeSelector = false;
+let themeListIsVisible = false;
 /**
  * @function switchTheme
  * @description Change for another theme
@@ -132,7 +133,7 @@ let displayThemeController = ()=>{
  */
 let hideThemeController = (event)=>{
     let e = event.toElement || event.relatedTarget;
-    if(e == this || e.parentNode == this){
+    if(e == this || (e !== null && e.parentNode == this)){
         return;
     }
     if(hoverThemeSelector){
@@ -142,19 +143,51 @@ let hideThemeController = (event)=>{
 
         fx.setText("Themes");
         hoverThemeSelector = false;
-        toggleThemesList(false);
+        if(themeListIsVisible){
+            toggleThemesList(false);
+        }
     }
 };
 let toggleThemesList = (forced = undefined)=>{
-    console.log("Toggle list");
+    console.log("- Toggle list");
+
     let list = themeSelector.querySelector('ul');
-    if(forced == false || list.style.opacity == '1'){
-        console.log("Hide list");
+
+    if(themeListIsVisible || (forced !== undefined && forced == false)){
+        console.log("-- Hide list");
+
         list.style.display = '';
         list.style.opacity = '';
+
+        let itemsList = list.querySelectorAll('li');
+        itemsList.forEach( (item) => {
+            item.style.opacity = "";
+        });
+
+        themeListIsVisible = false;
     }
-    else if(forced !== undefined && forced == true){
-        console.log("Show list");
+    else if(!themeListIsVisible || forced == true){
+        console.log("-- Show list");
+
+        let list = themeSelector.querySelector('ul');
+        list.style.display = "block";
+        
+        let itemsList = list.querySelectorAll('li');
+        let delay = 0;
+        itemsList.forEach( (item) => {
+            let currentDelay = delay;
+            setTimeout(
+                ()=>{
+                    console.log(currentDelay);
+                    item.style.opacity = "1";
+                },
+                currentDelay
+            );
+            delay += 500;
+        });
+
+        themeListIsVisible = true;
+        
         list.style.display = 'block';
         list.style.opacity = '1';
     }
@@ -163,7 +196,7 @@ let toggleThemesList = (forced = undefined)=>{
  * @function themeSelectorSetup
  * @description Setup all requirements for the theme selector.
  */
-const themeSelectorSetup = ()=>{
+let themeSelectorSetup = ()=>{
     themeSelector.addEventListener('mouseover', displayThemeController);
     themeSelector.addEventListener('mouseleave', hideThemeController);
     // themeSelector.querySelector('.theme-selector-title').addEventListener('click', toggleThemesList);

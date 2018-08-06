@@ -119,7 +119,8 @@ const switchTheme = (switchTo) => {
  */
 let displayThemeController = ()=>{
     if(!hoverThemeSelector){
-        themeSelector.style.width = "200px";
+        themeSelector.style.width = '200px';
+        themeSelector.style.opacity = '1';
         themeSelector.querySelector('.switch-left').style.opacity = '1';
         themeSelector.querySelector('.switch-right').style.opacity = '1';
 
@@ -139,7 +140,8 @@ let hideThemeController = (event)=>{
     if(hoverThemeSelector){
         themeSelector.querySelector('.switch-left').style.opacity = '';
         themeSelector.querySelector('.switch-right').style.opacity = '';
-        themeSelector.style.width = "";
+        themeSelector.style.width = '';
+        themeSelector.style.opacity = '';
 
         fx.setText("Themes");
         hoverThemeSelector = false;
@@ -161,7 +163,7 @@ let toggleThemesList = (forced = undefined)=>{
 
         let itemsList = list.querySelectorAll('li');
         itemsList.forEach( (item) => {
-            item.style.opacity = "";
+            item.style.opacity = '';
         });
 
         themeListIsVisible = false;
@@ -183,7 +185,7 @@ let toggleThemesList = (forced = undefined)=>{
                 },
                 currentDelay
             );
-            delay += 500;
+            delay += 200;
         });
 
         themeListIsVisible = true;

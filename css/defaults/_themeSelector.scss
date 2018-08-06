@@ -15,10 +15,10 @@
 
     opacity: 0.3;
     transition: width 0.3s, height 0.3s, opacity 0.3s;
-
+    
     .theme-selector-name{
         display: none;
-        cursor: pointer;
+        &:hover{ cursor: pointer; }
     }
 
     .switch-left, .switch-right{
@@ -53,9 +53,7 @@
         span{
             cursor: pointer;
             transition: color 0.3s;
-            &:hover{
-                color: $fontColorCallToAction;
-            }
+            &:hover{ color: $fontColorCallToAction; }
         }
     }
 }

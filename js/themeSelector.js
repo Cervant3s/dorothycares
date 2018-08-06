@@ -133,6 +133,7 @@ let displayThemeController = ()=>{
  * @description Hide the theme controller
  */
 let hideThemeController = (event)=>{
+    console.log("- Hide Theme Controller");
     let e = event.toElement || event.relatedTarget;
     if(e == this || (e !== null && e.parentNode == this)){
         return;
@@ -161,9 +162,19 @@ let toggleThemesList = (forced = undefined)=>{
         list.style.display = '';
         list.style.opacity = '';
 
-        let itemsList = list.querySelectorAll('li');
+        let itemsNodeList = list.querySelectorAll('li');
+        let itemsList = Array.from(itemsNodeList); // Convert 'NodeList' into 'Array...
+        itemsList.reverse(); // ... because we can't reverse NodeList, only Array can be reverse
         itemsList.forEach( (item) => {
-            item.style.opacity = '';
+            let currentDelay = delay;
+            setTimeout(
+                ()=>{
+                    console.log(currentDelay);
+                    item.style.opacity = '';
+                },
+                currentDelay
+            );
+            delay += 50;
         });
 
         themeListIsVisible = false;
@@ -172,7 +183,7 @@ let toggleThemesList = (forced = undefined)=>{
         console.log("-- Show list");
 
         let list = themeSelector.querySelector('ul');
-        list.style.display = "block";
+        list.style.display = 'block';
         
         let itemsList = list.querySelectorAll('li');
         let delay = 0;
@@ -181,11 +192,11 @@ let toggleThemesList = (forced = undefined)=>{
             setTimeout(
                 ()=>{
                     console.log(currentDelay);
-                    item.style.opacity = "1";
+                    item.style.opacity = '1';
                 },
                 currentDelay
             );
-            delay += 200;
+            delay += 100;
         });
 
         themeListIsVisible = true;

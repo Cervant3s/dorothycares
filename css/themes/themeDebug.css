@@ -1494,6 +1494,9 @@ LOGIN PAGE
 
 #theme-selector .theme-selector-name {
   display: none;
+}
+
+#theme-selector .theme-selector-name:hover {
   cursor: pointer;
 }
 

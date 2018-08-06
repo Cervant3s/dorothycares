@@ -116,9 +116,12 @@ const switchTheme = (switchTo) => {
  * @function displayThemeController
  * @description Display the theme controller
  */
-const displayThemeController = ()=>{
+let displayThemeController = ()=>{
     if(!hoverThemeSelector){
         themeSelector.style.width = "200px";
+        themeSelector.querySelector('.switch-left').style.opacity = '1';
+        themeSelector.querySelector('.switch-right').style.opacity = '1';
+
         fx.setText(themeChoice[themeIndex].publicName);
         hoverThemeSelector = true;
     }
@@ -127,15 +130,16 @@ const displayThemeController = ()=>{
  * @function hideThemeController
  * @description Hide the theme controller
  */
-const hideThemeController = (event)=>{
-    if(themeSelector.style.width === "200px"){
-        themeSelector.style.width = "";
-    }
+let hideThemeController = (event)=>{
     let e = event.toElement || event.relatedTarget;
-    if(e.parentNode == this || e == this){
+    if(e == this || e.parentNode == this){
         return;
     }
     if(hoverThemeSelector){
+        themeSelector.querySelector('.switch-left').style.opacity = '';
+        themeSelector.querySelector('.switch-right').style.opacity = '';
+        themeSelector.style.width = "";
+
         fx.setText("Themes");
         hoverThemeSelector = false;
         toggleThemesList(false);
@@ -144,7 +148,7 @@ const hideThemeController = (event)=>{
 let toggleThemesList = (forced = undefined)=>{
     console.log("Toggle list");
     let list = themeSelector.querySelector('ul');
-    if((forced === undefined || forced == false) || list.style.opacity == '1'){
+    if(forced == false || list.style.opacity == '1'){
         console.log("Hide list");
         list.style.display = '';
         list.style.opacity = '';

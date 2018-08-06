@@ -1,6 +1,7 @@
 /* -------- Top bar with date and time -------- */
 
 .os-bar {
+    @include no-select;
     text-align: right;
     font-size: 22px;
     position: fixed;

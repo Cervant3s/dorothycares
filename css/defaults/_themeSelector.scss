@@ -1,4 +1,6 @@
 #theme-selector{
+    @include no-select;
+
     position: fixed;
     top: 8px;
     left: 8px;
@@ -16,11 +18,13 @@
 
     .theme-selector-name{
         display: none;
+        cursor: pointer;
     }
 
     .switch-left, .switch-right{
         opacity: 0;
         transition: opacity 0.6s;
+        cursor: pointer;
     }
     .switch-left{ float: left; }
     .switch-right{ float: right; }
@@ -35,7 +39,6 @@
         left: 50%;
         transform: translateX(-50%);
         list-style: none;
-        cursor: default;
         
         transition: opacity 0.5s;
     }
@@ -47,12 +50,12 @@
         opacity: 0;
         transition: opacity 0.5s;
 
-        &:hover{
-            color: $fontColorCallToAction;
-        }
-
-        span:hover{
+        span{
             cursor: pointer;
+            transition: color 0.3s;
+            &:hover{
+                color: $fontColorCallToAction;
+            }
         }
     }
 }

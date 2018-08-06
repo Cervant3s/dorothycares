@@ -1481,22 +1481,7 @@ LOGIN PAGE
   border: 1px solid rgba(0, 0, 255, 0.4);
   border-radius: 16px;
   opacity: 0.3;
-  animation: fade-out 1s linear 2s;
   transition: width 0.3s, height 0.3s, opacity 0.3s;
-}
-
-#theme-selector:hover {
-  width: 200px;
-  opacity: 1;
-  cursor: pointer;
-}
-
-#theme-selector:hover .switch-left, #theme-selector:hover .switch-right {
-  opacity: 1;
-}
-
-#theme-selector:hover ul {
-  opacity: 1;
 }
 
 #theme-selector .theme-selector-name {

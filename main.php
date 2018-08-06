@@ -66,9 +66,10 @@
   <nav class="os-bar">
     <div class="os-bar__date-time"></div>
   </nav>
+  <!-- Theme controller -->
   <div id="theme-selector">
     <span class="switch-left fa fa-caret-left" onclick="switchTheme(-1)"></span>
-    <span class="theme-selector-title">Themes</span>
+    <span class="theme-selector-title" onclick="toggleThemesList()">Themes</span>
     <ul></ul>
     <span class="switch-right fa fa-caret-right" onclick="switchTheme(1)"></span>
   </div>

@@ -12,22 +12,22 @@
     border-radius: 16px;
 
     opacity: 0.3;
-    animation: fade-out 1s linear 2s;
+    // animation: fade-out 1s linear 2s;
     transition: width 0.3s, height 0.3s, opacity 0.3s;
 
-    &:hover{
-        width: 200px;
-        opacity: 1;
-        cursor: pointer;
+    // &:hover{
+    //     width: 200px;
+    //     opacity: 1;
+    //     cursor: pointer;
 
-        .switch-left, .switch-right{
-            opacity: 1;
-        }
+    //     .switch-left, .switch-right{
+    //         opacity: 1;
+    //     }
 
-        ul{
-            opacity: 1;
-        }
-    }
+    //     ul{
+    //         opacity: 1;
+    //     }
+    // }
 
     .theme-selector-name{
         display: none;

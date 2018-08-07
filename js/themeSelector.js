@@ -105,6 +105,9 @@ let switchTheme = (switchTo) => {
     else if(typeof switchTo == 'string'){
         for(let i = themeChoice.length - 1; i >= 0; i--){
             if(themeChoice[i].fileName == switchTo){
+                if(themeChoice[themeIndex].fileName == switchTo){
+                    return; // We stop here to not "change" the theme with the same theme.
+                }
                 themeIndex = i;
             }
         }

@@ -90,6 +90,7 @@ let themeIndex = 0;
 const fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
 let hoverThemeSelector = false;
 let themeListIsVisible = false;
+let delayApparition = 50;
 /**
  * @function switchTheme
  * @description Change for another theme
@@ -150,13 +151,11 @@ let hideThemeController = (event)=>{
             
             fx.setText("Themes");
             hoverThemeSelector = false;
-            if(themeListIsVisible){
-                toggleThemesList(false);
-            }
         }    
     }
     else{ // ... otherwise, we wait to retry to close the controller.
-        setTimeout(hideThemeController, 300);
+        toggleThemesList(false);
+        setTimeout(hideThemeController, delayApparition * themeChoice.length);
     }
 };
 let toggleThemesList = (forced = undefined)=>{
@@ -186,7 +185,7 @@ let showList = (list) =>{
                 },
                 currentDelay
             );
-            delay += 100;
+            delay += delayApparition;
         });
 
         themeListIsVisible = true;
@@ -207,30 +206,26 @@ let hideList = (list) =>{
             ()=>{
                 console.log(currentDelay);
                 item.style.opacity = '';
-
-                if(allItemIsHidden(list)){
-                    list.style.display = '';
-                    list.style.opacity = '';
-                }
             },
             currentDelay
         );
-        delay += 50;
+        delay += delayApparition;
     });
 
     themeListIsVisible = false;
 };
 
 let allItemIsHidden = (list) => {
-    const itemsList = list.querySelectorAll('li');
+    let itemsList = list.querySelectorAll('li');
     itemsList.forEach( (item) => {
-        const opacity = document.getComputedStyle(item).opacity;
-        console.log('-- Computed opacity : ');
-        console.log(alpha);
-        if(opacity != 0){
+        let opacity = window.getComputedStyle(item, null).getPropertyValue("opacity");
+        console.log('-- Computed opacity : ' + opacity);
+        if(opacity > 0){
+            console.log("--- allItemIsHidden: return false");
             return false;
         }
     });
+    console.log("--- allItemIsHidden: return true");
     return true;
 };
 /**

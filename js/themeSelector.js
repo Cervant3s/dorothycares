@@ -95,7 +95,7 @@ let themeListIsVisible = false;
  * @description Change for another theme
  * @param {int|string} switchTo If 'int', switch to many theme before or after; if 'string', it must be a theme name
  */
-const switchTheme = (switchTo) => {
+let switchTheme = (switchTo) => {
     if(typeof switchTo == 'number'){
         themeIndex = (themeIndex + switchTo) % themeChoice.length;
         if(themeIndex < 0){
@@ -134,55 +134,42 @@ let displayThemeController = ()=>{
  */
 let hideThemeController = (event)=>{
     console.log("- Hide Theme Controller");
-    let e = event.toElement || event.relatedTarget;
-    if(e == this || (e !== null && e.parentNode == this)){
-        return;
-    }
-    if(hoverThemeSelector){
-        themeSelector.querySelector('.switch-left').style.opacity = '';
-        themeSelector.querySelector('.switch-right').style.opacity = '';
-        themeSelector.style.width = '';
-        themeSelector.style.opacity = '';
-
-        fx.setText("Themes");
-        hoverThemeSelector = false;
-        if(themeListIsVisible){
-            toggleThemesList(false);
+    if( !themeListIsVisible){ // We close the list only if the theme list isn't visible...
+        let e = event.toElement || event.relatedTarget;
+        if(e == this || (e !== null && e.parentNode == this)){
+            return;
         }
+        if(hoverThemeSelector){
+            themeSelector.querySelector('.switch-left').style.opacity = '';
+            themeSelector.querySelector('.switch-right').style.opacity = '';
+            themeSelector.style.width = '';
+            themeSelector.style.opacity = '';
+            
+            fx.setText("Themes");
+            hoverThemeSelector = false;
+            if(themeListIsVisible){
+                toggleThemesList(false);
+            }
+        }    
+    }
+    else{ // ... otherwise, we wait to retry to close the controller.
+        setTimeout(hideThemeController, 300);
     }
 };
 let toggleThemesList = (forced = undefined)=>{
     console.log("- Toggle list");
 
-    let list = themeSelector.querySelector('ul');
+    let themeList = themeSelector.querySelector('ul');
 
     if(themeListIsVisible || (forced !== undefined && forced == false)){
-        console.log("-- Hide list");
-
-        list.style.display = '';
-        list.style.opacity = '';
-
-        let itemsNodeList = list.querySelectorAll('li');
-        let itemsList = Array.from(itemsNodeList); // Convert 'NodeList' into 'Array...
-        itemsList.reverse(); // ... because we can't reverse NodeList, only Array can be reverse
-        itemsList.forEach( (item) => {
-            let currentDelay = delay;
-            setTimeout(
-                ()=>{
-                    console.log(currentDelay);
-                    item.style.opacity = '';
-                },
-                currentDelay
-            );
-            delay += 50;
-        });
-
-        themeListIsVisible = false;
+        hideList(themeList);
     }
     else if(!themeListIsVisible || forced == true){
-        console.log("-- Show list");
-
-        let list = themeSelector.querySelector('ul');
+        showList(themeList);
+    }
+};
+let showList = (list) =>{
+    console.log("-- Show list");
         list.style.display = 'block';
         
         let itemsList = list.querySelectorAll('li');
@@ -203,7 +190,45 @@ let toggleThemesList = (forced = undefined)=>{
         
         list.style.display = 'block';
         list.style.opacity = '1';
-    }
+};
+let hideList = (list) =>{
+    console.log("-- Hide list");
+    let itemsNodeList = list.querySelectorAll('li');
+    let itemsList = Array.from(itemsNodeList); // Convert 'NodeList' into 'Array...
+    itemsList.reverse(); // ... because we can't reverse NodeList, only Array can be reverse
+
+    let delay = 0;
+    itemsList.forEach( (item) => {
+        let currentDelay = delay;
+        setTimeout(
+            ()=>{
+                console.log(currentDelay);
+                item.style.opacity = '';
+
+                if(allItemIsHidden(list)){
+                    list.style.display = '';
+                    list.style.opacity = '';
+                }
+            },
+            currentDelay
+        );
+        delay += 50;
+    });
+
+    themeListIsVisible = false;
+};
+
+let allItemIsHidden = (list) => {
+    const itemsList = list.querySelectorAll('li');
+    itemsList.forEach( (item) => {
+        const opacity = document.getComputedStyle(item).opacity;
+        console.log('-- Computed opacity : ');
+        console.log(alpha);
+        if(opacity != 0){
+            return false;
+        }
+    });
+    return true;
 };
 /**
  * @function themeSelectorSetup

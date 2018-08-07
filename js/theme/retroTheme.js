@@ -6,4 +6,6 @@ let whenSwitchOnThisTheme = () => {
     themeUnload = () => {
         console.log('Retro theme unloaded');
     };
+
+    return true;
 };

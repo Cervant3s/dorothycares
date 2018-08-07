@@ -375,8 +375,7 @@ body {
   font-size: 22px;
   position: fixed;
   display: block;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   width: 17%;
   height: 50px;
   padding: 7px 0px;
@@ -389,12 +388,8 @@ body {
 .os-bar__date-time {
   position: absolute;
   display: inline-block;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
+  justify-content: left;
+  align-items: left;
   right: 50px;
   width: 120px;
   height: 100%;
@@ -435,7 +430,6 @@ body {
 #menu-deroulant li li {
   max-height: 0;
   overflow: hidden;
-  -webkit-transition: all .15s;
   transition: all .15s;
   border-radius: 0;
   border: none;
@@ -478,19 +472,14 @@ BALL & MENU
   border-radius: 100%;
   z-index: 10;
   cursor: pointer;
-  -webkit-box-shadow: inset 80px -10px 100px 5px red, 0px 0px 100px -20px #850505;
-          box-shadow: inset 80px -10px 100px 5px red, 0px 0px 100px -20px #850505;
+  box-shadow: inset 80px -10px 100px 5px red, 0px 0px 100px -20px #850505;
   opacity: 0;
   /* ------------ toggle maybe ------------ */
-  -webkit-transition: -webkit-box-shadow ease 0.5s;
-  transition: -webkit-box-shadow ease 0.5s;
   transition: box-shadow ease 0.5s;
-  transition: box-shadow ease 0.5s, -webkit-box-shadow ease 0.5s;
 }
 
 .dorothy-ball:hover {
-  -webkit-box-shadow: inset -80px -10px 100px 5px #612b2b, 40px -10px 100px -40px #ce0707;
-          box-shadow: inset -80px -10px 100px 5px #612b2b, 40px -10px 100px -40px #ce0707;
+  box-shadow: inset -80px -10px 100px 5px #612b2b, 40px -10px 100px -40px #ce0707;
 }
 
 .ball-menu {
@@ -512,7 +501,6 @@ BALL & MENU
   border-radius: 100%;
   position: absolute;
   z-index: 5;
-  -webkit-transition: background-color ease 0.3s;
   transition: background-color ease 0.3s;
 }
 
@@ -560,7 +548,6 @@ BALL & MENU
   font-weight: 300;
   text-align: center;
   position: absolute;
-  -webkit-transition: opacity ease 0.3s;
   transition: opacity ease 0.3s;
 }
 
@@ -632,7 +619,6 @@ WELCOME MESSAGE
   cursor: pointer;
   opacity: 0;
   color: blue;
-  -webkit-transition: opacity ease 0.5s, color ease 0.3s;
   transition: opacity ease 0.5s, color ease 0.3s;
 }
 
@@ -660,15 +646,10 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   padding: 20px;
   background-color: #fff;
   border-radius: 20px;
-  -webkit-box-shadow: -1px 1px 120px -10px white;
-          box-shadow: -1px 1px 120px -10px white;
+  box-shadow: -1px 1px 120px -10px white;
   display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
   z-index: 15;
 }
@@ -680,19 +661,12 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   top: 0;
   left: 0;
   opacity: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   -webkit-animation: bgColorAnim 300s infinite;
   animation: bgColorAnim 300s infinite;
   z-index: 16;
-  -webkit-transition: opacity ease 0.3s;
   transition: opacity ease 0.3s;
 }
 
@@ -724,9 +698,7 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   animation: bgColorAnim 300s infinite;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
-  -webkit-box-shadow: -1px 1px 80px -20px #5d0d0d;
-          box-shadow: -1px 1px 80px -20px #5d0d0d;
-  -webkit-transition: right ease 0.5s;
+  box-shadow: -1px 1px 80px -20px #5d0d0d;
   transition: right ease 0.5s;
   z-index: 12;
 }
@@ -758,9 +730,7 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   /*background-color: white;*/
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
-  -webkit-box-shadow: -1px 1px 120px -30px #5d0d0d;
-          box-shadow: -1px 1px 120px -30px #5d0d0d;
-  -webkit-transition: top ease 0.3s;
+  box-shadow: -1px 1px 120px -30px #5d0d0d;
   transition: top ease 0.3s;
   z-index: 12;
   -webkit-animation: bgColorAnim 300s infinite;
@@ -769,38 +739,24 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 
 /* -------- Common styles for modals -------- */
 .modal-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   color: green;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   width: 100%;
 }
 
 .modal-container-2 {
   /* PROFILE */
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   color: #232323;
 }
 
 .modal-header {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   left: 0;
   height: 100%;
   width: 30px;
@@ -809,15 +765,9 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 }
 
 .modal-header .modal-close-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   padding-bottom: 30px;
   padding-left: 30px;
   border-radius: 50px;
@@ -832,15 +782,9 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 .modal-header-2 {
   /* PROFILE */
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   height: 30px;
   width: 100%;
   bottom: 0;
@@ -853,15 +797,9 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   position: relative;
   top: 60px;
   /* hide close button (up arrow) for animation */
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   padding-bottom: 30px;
   border-radius: 50px;
   cursor: pointer;
@@ -919,12 +857,8 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 
 .modal-body-title-container {
   /* PROFILE */
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .modal-body-title-title {
@@ -935,15 +869,9 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 
 .modal-body-title-icons {
   /* PROFILE */
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: flex-end;
+  align-items: center;
   width: 4rem;
   font-size: 2rem;
   color: black;
@@ -955,19 +883,12 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 
 .profile-details {
   /* PROFILE */
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-top: 2rem;
 }
 
 .profile-input-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -1017,26 +938,16 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 }
 
 .profile-logout {
-  -webkit-transition: color ease 0.3s;
   transition: color ease 0.3s;
   color: green;
 }
 
 .profile-buttons {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-top: 40px;
 }
 
@@ -1053,7 +964,6 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
   width: 50%;
-  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 
@@ -1072,7 +982,6 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
   width: 50%;
-  -webkit-transition: all ease 0.3s;
   transition: all ease 0.3s;
 }
 
@@ -1119,7 +1028,6 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   left: 0.5rem;
   margin-left: -80px;
   opacity: 0;
-  -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
 }
 
@@ -1147,9 +1055,7 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
   left: -120%;
   border-bottom-right-radius: 30px;
   border-top-right-radius: 30px;
-  -webkit-box-shadow: -1px 1px 80px -30px #5d0d0d;
-          box-shadow: -1px 1px 80px -30px #5d0d0d;
-  -webkit-transition: left ease 0.5s;
+  box-shadow: -1px 1px 80px -30px #5d0d0d;
   transition: left ease 0.5s;
   z-index: 11;
   -webkit-animation: bgColorAnim 300s infinite;
@@ -1157,25 +1063,15 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 }
 
 #modal-container-3 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 .modal-header-3 {
   width: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-close-btn-3 {
@@ -1190,19 +1086,10 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 }
 
 .modal-body-info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .modal-info-title {
@@ -1226,19 +1113,10 @@ MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
 }
 
 .modal-info-links {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 220px;
 }
 
@@ -1277,7 +1155,6 @@ TERMINAL (CHATBOX)
   /*Header of the terminal radius border set to 10px*/
   border-top-right-radius: 10px;
   /*top: 700px;  Push by default the terminal on a middle position*/
-  -webkit-transition: width ease 0.2s, margin ease 0.2s, top ease 0.2s;
   transition: width ease 0.2s, margin ease 0.2s, top ease 0.2s;
   z-index: 0;
   font-weight: 300;
@@ -1319,8 +1196,7 @@ TERMINAL (CHATBOX)
 .minimize {
   /*Minimize button*/
   background-color: orange;
-  -webkit-box-shadow: inset 0px 0px 5px 2px #E8600C;
-          box-shadow: inset 0px 0px 5px 2px #E8600C;
+  box-shadow: inset 0px 0px 5px 2px #E8600C;
 }
 
 .minimize:hover {
@@ -1331,8 +1207,7 @@ TERMINAL (CHATBOX)
   /*Maximize button*/
   background-color: #2C9DC9;
   /* If minimize active set to green */
-  -webkit-box-shadow: inset 0px 0px 5px 2px #000F42;
-          box-shadow: inset 0px 0px 5px 2px #000F42;
+  box-shadow: inset 0px 0px 5px 2px #000F42;
 }
 
 .maximize:hover {
@@ -1343,8 +1218,7 @@ TERMINAL (CHATBOX)
 .close {
   /*Close button*/
   background-color: red;
-  -webkit-box-shadow: inset 0px 0px 5px 2px #2B030F;
-          box-shadow: inset 0px 0px 5px 2px #2B030F;
+  box-shadow: inset 0px 0px 5px 2px #2B030F;
 }
 
 .close:hover {
@@ -1494,15 +1368,9 @@ LOGIN PAGE
 #login-interface {
   width: 100vw;
   height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 #login-interface .container-login {
@@ -1519,12 +1387,8 @@ LOGIN PAGE
 }
 
 #login-interface .google-button {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   border-radius: 5px;
   height: 60px;
   margin-top: 80px;
@@ -1533,33 +1397,20 @@ LOGIN PAGE
 #login-interface .google-button-block {
   width: 280px;
   border-radius: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   background-color: green;
-  -webkit-box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 #login-interface .logo {
   height: 50px;
   width: 50px;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   background-color: #fc0505;
   border-radius: 100%;
 }
@@ -1607,7 +1458,6 @@ LOGIN PAGE
   background: radial-gradient(circle closest-side, #ff6b6b, transparent);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
-  -webkit-transition: width .2s ease, height .2s ease;
   transition: width .2s ease, height .2s ease;
 }
 
@@ -1682,7 +1532,6 @@ LOGIN PAGE
   border: 1px solid rgba(0, 0, 255, 0.4);
   border-radius: 16px;
   opacity: 0.3;
-  -webkit-transition: width 0.3s, height 0.3s, opacity 0.3s;
   transition: width 0.3s, height 0.3s, opacity 0.3s;
 }
 
@@ -1692,7 +1541,6 @@ LOGIN PAGE
 
 #theme-selector .switch-left, #theme-selector .switch-right {
   opacity: 0;
-  -webkit-transition: opacity 0.6s;
   transition: opacity 0.6s;
   cursor: pointer;
 }
@@ -1714,10 +1562,8 @@ LOGIN PAGE
   display: none;
   position: absolute;
   left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  transform: translateX(-50%);
   list-style: none;
-  -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
@@ -1726,13 +1572,11 @@ LOGIN PAGE
   border-bottom: 1px solid blue;
   color: rgba(0, 0, 255, 0.4);
   opacity: 0;
-  -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
 
 #theme-selector li span {
   cursor: pointer;
-  -webkit-transition: color 0.3s;
   transition: color 0.3s;
 }
 

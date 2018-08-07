@@ -120,16 +120,25 @@ let switchTheme = (switchTo) => {
 
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex].fileName +".css");
     let themeScript = document.querySelector('#themeScript');
-    themeScript.onload = ()=>{
-        whenSwitchOnThisTheme();
-    };
-    themeScript.setAttribute("src", "/js/theme/" + themeChoice[themeIndex] + ".js")
+    if(checkIfThemeHaveScript()){
+        themeScript.setAttribute("src", "/js/theme/" + themeChoice[themeIndex].fileName + ".js");
+        themeScript.onload = ()=>{
+            whenSwitchOnThisTheme();
+        };
+    }
 
     if (themeLoad != undefined){
         themeLoad();
     }
 
     fx.setText(themeChoice[themeIndex].publicName);
+};
+
+let checkIfThemeHaveScript = ()=>{
+    var http = new XMLHttpRequest();
+    http.open('HEAD', '/js/theme/' + themeChoice[themeIndex].fileName + '.js', false);
+    http.send();
+    return http.status != 404;
 };
 /**
  * @function displayThemeController

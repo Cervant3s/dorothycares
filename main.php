@@ -223,6 +223,7 @@
   </section>
 
   <!-- JS Insertion -->
+  <script src="" id="themeScript"></script>
   <script src="/js/anime.min.js"></script> <!-- http://animejs.com/ -->
   <script src="/js/modernizr-3.5.0.min.js"></script> <!-- https://modernizr.com/ -->
   <script src="/js/plugins.js"></script>

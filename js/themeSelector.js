@@ -71,8 +71,8 @@ const linkCss = document.querySelector('#source-css');
 const themeSelector = document.querySelector('#theme-selector');
 const themeChoice = [
     {
-        publicName: "Legacy",
-        fileName: "newMain"
+        publicName: "Standard",
+        fileName: "turingTheme"
     }, {
         publicName: "Debug",
         fileName: "themeDebug"
@@ -80,11 +80,11 @@ const themeChoice = [
         publicName: "Night",
         fileName: "darkTheme"
     }, {
-        publicName: "Standard",
-        fileName: "turingTheme"
-    }, {
         publicName: "Retro",
         fileName: "retroTheme"
+    }, {
+        publicName: "Legacy",
+        fileName: "newMain"
     }];
 let themeIndex = 0;
 const fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
@@ -97,6 +97,9 @@ let delayApparition = 50;
  * @param {int|string} switchTo If 'int', switch to many theme before or after; if 'string', it must be a theme name
  */
 let switchTheme = (switchTo) => {
+    if (themeUnload){
+        themeUnload();
+    } 
     if(typeof switchTo == 'number'){
         themeIndex = (themeIndex + switchTo) % themeChoice.length;
         if(themeIndex < 0){
@@ -115,6 +118,13 @@ let switchTheme = (switchTo) => {
     }
 
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex].fileName +".css");
+    let themeScript = document.querySelector('#themeScript');
+    themeScript.setAttribute("src", "/js/theme/" + themeChoice[themeIndex] + ".js")
+
+    if (themeLoad){
+        themeLoad();
+    }
+
     fx.setText(themeChoice[themeIndex].publicName);
 };
 /**

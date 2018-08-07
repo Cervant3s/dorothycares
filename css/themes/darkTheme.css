@@ -1492,8 +1492,7 @@ LOGIN PAGE
   transition: width 0.3s, height 0.3s, opacity 0.3s;
 }
 
-#theme-selector .theme-selector-name {
-  display: none;
+#theme-selector .theme-selector-title {
   cursor: pointer;
 }
 

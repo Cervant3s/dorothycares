@@ -91,13 +91,14 @@ const fx = new TextScramble(themeSelector.querySelector('.theme-selector-title')
 let hoverThemeSelector = false;
 let themeListIsVisible = false;
 let delayApparition = 50;
+let themeLoad, themeUnload;
 /**
  * @function switchTheme
  * @description Change for another theme
  * @param {int|string} switchTo If 'int', switch to many theme before or after; if 'string', it must be a theme name
  */
 let switchTheme = (switchTo) => {
-    if (themeUnload){
+    if (themeUnload != undefined){
         themeUnload();
     } 
     if(typeof switchTo == 'number'){
@@ -119,9 +120,12 @@ let switchTheme = (switchTo) => {
 
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex].fileName +".css");
     let themeScript = document.querySelector('#themeScript');
+    themeScript.onload = ()=>{
+        whenSwitchOnThisTheme();
+    };
     themeScript.setAttribute("src", "/js/theme/" + themeChoice[themeIndex] + ".js")
 
-    if (themeLoad){
+    if (themeLoad != undefined){
         themeLoad();
     }
 

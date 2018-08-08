@@ -98,9 +98,11 @@ let themeLoad, themeUnload;
  * @param {int|string} switchTo If 'int', switch to many theme before or after; if 'string', it must be a theme name
  */
 let switchTheme = (switchTo) => {
+    /* In standby for now... Wake it up for a next feature !
     if (themeUnload != undefined){
         themeUnload();
-    } 
+    }
+    //*/
     if(typeof switchTo == 'number'){
         themeIndex = (themeIndex + switchTo) % themeChoice.length;
         if(themeIndex < 0){
@@ -118,7 +120,17 @@ let switchTheme = (switchTo) => {
         }
     }
 
+    // Tempory script ! Delete it for a next feature (see other comment above and below)
+    if(themeChoice[themeIndex].publicName === "Retro"){
+        injectLines(document.querySelector('.dorothy-ball'));
+    }
+    else{
+        removeLines();
+    }
+    ////////////////////////////////////////////////////////////////////////////////////
+
     linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex].fileName +".css");
+    /* In standby for now... Wake it up for a next feature !
     let themeScript = document.querySelector('#themeScript');
     if(checkIfThemeHaveScript()){
         themeScript.setAttribute("src", "/js/theme/" + themeChoice[themeIndex].fileName + ".js");
@@ -130,6 +142,7 @@ let switchTheme = (switchTo) => {
     if (themeLoad != undefined){
         themeLoad();
     }
+    //*/
 
     fx.setText(themeChoice[themeIndex].publicName);
 };
@@ -250,6 +263,26 @@ let allItemIsHidden = (list) => {
     });
     console.log("--- allItemIsHidden: return true");
     return true;
+};
+
+let injectLines = (element, nbreOfLines = 39) => {
+    let linesContainer = document.createElement('div');
+    linesContainer.classList.add('lines');
+
+    while(nbreOfLines > 0){
+        let line = document.createElement('div');
+        line.classList.add('line');
+        linesContainer.appendChild(line);
+        nbreOfLines--;
+    }
+
+    element.appendChild(linesContainer);
+};
+let removeLines = () => {
+    let linesContainer = document.querySelector('.lines');
+    if(linesContainer !== null){
+        linesContainer.parentNode.removeChild(linesContainer);
+    }
 };
 /**
  * @function themeSelectorSetup

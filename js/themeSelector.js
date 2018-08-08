@@ -73,10 +73,10 @@ const themeChoice = [
     {
         publicName: "Standard",
         fileName: "standardTheme"
-    }, {
+    }, /*{
         publicName: "Debug",
         fileName: "themeDebug"
-    }, {
+    },*/ {
         publicName: "Night",
         fileName: "darkTheme"
     }, {
@@ -90,14 +90,15 @@ let themeIndex = 0;
 const fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
 let hoverThemeSelector = false;
 let themeListIsVisible = false;
-let delayApparition = 50;
-let themeLoad, themeUnload;
+const delayApparition = 50;
+// let themeLoad, themeUnload; // In standby for now... Wake it up for a next feature !
+
 /**
  * @function switchTheme
  * @description Change for another theme
  * @param {int|string} switchTo If 'int', switch to many theme before or after; if 'string', it must be a theme name
  */
-let switchTheme = (switchTo) => {
+const switchTheme = (switchTo) => {
     /* In standby for now... Wake it up for a next feature !
     if (themeUnload != undefined){
         themeUnload();
@@ -147,7 +148,7 @@ let switchTheme = (switchTo) => {
     fx.setText(themeChoice[themeIndex].publicName);
 };
 
-let checkIfThemeHaveScript = ()=>{
+const checkIfThemeHaveScript = ()=>{
     var http = new XMLHttpRequest();
     http.open('HEAD', '/js/theme/' + themeChoice[themeIndex].fileName + '.js', false);
     http.send();
@@ -157,7 +158,7 @@ let checkIfThemeHaveScript = ()=>{
  * @function displayThemeController
  * @description Display the theme controller
  */
-let displayThemeController = ()=>{
+const displayThemeController = ()=>{
     if(!hoverThemeSelector){
         themeSelector.style.width = '200px';
         themeSelector.style.opacity = '1';
@@ -172,10 +173,9 @@ let displayThemeController = ()=>{
  * @function hideThemeController
  * @description Hide the theme controller
  */
-let hideThemeController = (event)=>{
-    console.log("- Hide Theme Controller");
+const hideThemeController = (event)=>{
     if( !themeListIsVisible){ // We close the list only if the theme list isn't visible...
-        let e = event.toElement || event.relatedTarget;
+        const e = event.toElement || event.relatedTarget;
         if(e == this || (e !== null && e.parentNode == this)){
             return;
         }
@@ -194,10 +194,8 @@ let hideThemeController = (event)=>{
         setTimeout(hideThemeController, delayApparition * themeChoice.length);
     }
 };
-let toggleThemesList = (forced = undefined)=>{
-    console.log("- Toggle list");
-
-    let themeList = themeSelector.querySelector('ul');
+const toggleThemesList = (forced = undefined)=>{
+    const themeList = themeSelector.querySelector('ul');
 
     if(themeListIsVisible || (forced !== undefined && forced == false)){
         hideList(themeList);
@@ -206,33 +204,30 @@ let toggleThemesList = (forced = undefined)=>{
         showList(themeList);
     }
 };
-let showList = (list) =>{
-    console.log("-- Show list");
-        list.style.display = 'block';
-        
-        let itemsList = list.querySelectorAll('li');
-        let delay = 0;
-        itemsList.forEach( (item) => {
-            let currentDelay = delay;
-            setTimeout(
-                ()=>{
-                    console.log(currentDelay);
-                    item.style.opacity = '1';
-                },
-                currentDelay
-            );
-            delay += delayApparition;
-        });
+const showList = (list) =>{
+    list.style.display = 'block';
+    
+    const itemsList = list.querySelectorAll('li');
+    let delay = 0;
+    itemsList.forEach( (item) => {
+        let currentDelay = delay;
+        setTimeout(
+            ()=>{
+                item.style.opacity = '1';
+            },
+            currentDelay
+        );
+        delay += delayApparition;
+    });
 
-        themeListIsVisible = true;
-        
-        list.style.display = 'block';
-        list.style.opacity = '1';
+    themeListIsVisible = true;
+    
+    list.style.display = 'block';
+    list.style.opacity = '1';
 };
-let hideList = (list) =>{
-    console.log("-- Hide list");
-    let itemsNodeList = list.querySelectorAll('li');
-    let itemsList = Array.from(itemsNodeList); // Convert 'NodeList' into 'Array...
+const hideList = (list) =>{
+    const itemsNodeList = list.querySelectorAll('li');
+    const itemsList = Array.from(itemsNodeList); // Convert 'NodeList' into 'Array...
     itemsList.reverse(); // ... because we can't reverse NodeList, only Array can be reverse
 
     let delay = 0;
@@ -251,21 +246,18 @@ let hideList = (list) =>{
     themeListIsVisible = false;
 };
 
-let allItemIsHidden = (list) => {
-    let itemsList = list.querySelectorAll('li');
+const allItemIsHidden = (list) => {
+    const itemsList = list.querySelectorAll('li');
     itemsList.forEach( (item) => {
-        let opacity = window.getComputedStyle(item, null).getPropertyValue("opacity");
-        console.log('-- Computed opacity : ' + opacity);
+        const opacity = window.getComputedStyle(item, null).getPropertyValue("opacity");
         if(opacity > 0){
-            console.log("--- allItemIsHidden: return false");
             return false;
         }
     });
-    console.log("--- allItemIsHidden: return true");
     return true;
 };
 
-let injectLines = (element, nbreOfLines = 60) => {
+const injectLines = (element, nbreOfLines = 60) => {
     let linesContainer = document.createElement('div');
     linesContainer.classList.add('lines');
 
@@ -278,7 +270,7 @@ let injectLines = (element, nbreOfLines = 60) => {
 
     element.appendChild(linesContainer);
 };
-let removeLines = () => {
+const removeLines = () => {
     let linesContainer = document.querySelector('.lines');
     if(linesContainer !== null){
         linesContainer.parentNode.removeChild(linesContainer);
@@ -288,7 +280,7 @@ let removeLines = () => {
  * @function themeSelectorSetup
  * @description Setup all requirements for the theme selector.
  */
-let themeSelectorSetup = ()=>{
+const themeSelectorSetup = ()=>{
     themeSelector.addEventListener('mouseover', displayThemeController);
     themeSelector.addEventListener('mouseleave', hideThemeController);
     // themeSelector.querySelector('.theme-selector-title').addEventListener('click', toggleThemesList);

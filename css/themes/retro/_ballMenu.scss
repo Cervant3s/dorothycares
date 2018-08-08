@@ -1,0 +1,86 @@
+.dorothy-ball {
+    position: fixed;
+    left: 50%;
+    bottom: 50%;
+    // transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    z-index: 10;
+    cursor: pointer;
+    box-shadow: inset 80px -10px 100px 5px $colorBall1, 0px 0px 100px -20px $colorBall2;
+    opacity: 0;
+    /* ------------ toggle maybe ------------ */
+    transition: box-shadow ease 0.5s;
+    &:hover {
+        box-shadow: inset -80px -10px 100px 5px $colorBallHover1, 40px -10px 100px -40px $colorBallHover2;
+    }
+
+
+    .lines {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        border-radius: 50%;
+        overflow: hidden;
+        opacity: 0.9;
+        
+        .line {
+          width: 100%;
+          position: relative;
+          height: 1%;
+          margin-bottom: 1%;
+          background: $colorLine;
+        }
+        @for $i from 1 through 50 {
+          .line:nth-child(#{$i}) {
+            animation: rotateLine 4s ($i * 0.2s) infinite;
+          }
+        }
+      }
+    }
+
+    @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      
+      @keyframes rotateLine {
+        0% {
+          transform: rotateX(0deg);
+        }
+        60% {
+          transform: rotateX(60deg);
+        }
+        90% {
+          transform: rotateX(90deg);
+        }
+        100% {
+          transform: rotateX(0deg);
+        }
+      }
+
+      .ball-menu-item-label {
+        &.info-label {
+          opacity: 0;
+          font-size: 1.5rem;
+        }
+        &.terminal-label {
+          opacity: 0;
+          font-size: 1.5rem;
+        }
+        &.profile-label {
+          opacity: 0;
+          font-size: 1.5rem;
+        }
+        &.calendar-label {
+          opacity: 0;
+          font-size: 1.5rem;
+        }
+      }

@@ -1,0 +1,131 @@
+/* -------- Tooltip for logout button in profile modal -------- */
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    .tooltiptext {
+        visibility: hidden;
+        font-family: $fontRobotoMono;
+        font-weight: 700;
+        font-size: 0.8rem;
+        width: 70px;
+        background-color: $backgroundColorTooltip;
+        color: $fontColorTooltip;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 11;
+        /*bottom: 65%;*/
+        bottom: 0.3rem;
+        /*left: 0%;*/
+        left: 0.5rem;
+        margin-left: -80px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+}
+
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* -------- Info modal (about) coming from the left -------- */
+
+#infoPage {
+    width: 40%;
+    max-width: 400px;
+    position: fixed;
+    overflow: hidden;
+    padding: 2rem 1rem;
+    top: 30px;
+    left: -120%;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: -1px 1px 80px -30px $colorBoxShadowModal;
+    transition: left ease 0.5s;
+    z-index: 11;
+    -webkit-animation: bgColorAnim 300s infinite;
+    animation: bgColorAnim 300s infinite;
+}
+
+#modal-container-3 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-header-3 {
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-close-btn-3 {
+    position: relative;
+    right: -60px;
+    i {
+        cursor: pointer;
+        font-size: 4rem;
+        color: $fontColorModal;
+    }
+}
+
+
+.modal-body-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-info-title {
+    font-weight: 300;
+    color: $fontColorModal;
+    margin: 0;
+    display: block;
+    text-align: center;
+}
+
+.modal-info-creators {
+    /*Powered by the Nine: Saadia Brahimi, Cali Armut, Laurent Hulstaert, Alexandre Ntougas, Michaël Tolis, Bertrand Honner, Yadrichnikov Nikolaï, Prince-kombo Bontala, Thomas Bouchard*/
+    color: $fontColorModalCreators;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.version {
+    font-size: 1rem;
+    margin-left: 0.75rem;
+}
+
+.modal-info-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+}
+
+.modal-info-link {
+    font-weight: 100;
+    display: block;
+    text-align: center;
+    color: $fontColorModal;
+    margin-right: 5px;
+    margin-bottom: 0.4rem;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}

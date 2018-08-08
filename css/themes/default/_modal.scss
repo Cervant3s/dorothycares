@@ -1,0 +1,379 @@
+/*
+-----------------------------------------------
+MODALS (WINDOWS POPPING UP FROM TOP, RIGHT AND LEFT)
+-----------------------------------------------
+*/
+
+/* -------- Action message pop-up/modal (top right) -------- */
+
+.messageModal {
+    max-width: 300px;
+    position: absolute;
+    top: 90px;
+    right: 30px;
+    opacity: 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: -1px 1px 120px -10px white;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 15;
+}
+
+.messageModalClose {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-animation: bgColorAnim 300s infinite;
+    animation: bgColorAnim 300s infinite;
+    z-index: 16;
+    transition: opacity ease 0.3s;    
+    p {
+       cursor: pointer;
+       color: $fontColorModal;
+    }
+}
+
+
+.messageModal:hover .messageModalClose {
+    opacity: 1;
+}
+
+.messageModalText {
+    color: #232323;
+    margin: 0;
+}
+
+/* -------- Long answer modal coming from the right -------- */
+
+#answerTemplate {
+    width: 90%;
+    height: 80%;
+    position: fixed;
+    padding: 25px 40px 10px 0;
+    top: 50%;
+    right: -120%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-animation: bgColorAnim 300s infinite;
+    animation: bgColorAnim 300s infinite;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: -1px 1px 80px -20px $colorBoxShadowModal;
+    transition: right ease 0.5s;
+    z-index: 12;
+}
+
+.modal-body-block-table {
+    width: 100%;
+}
+
+/* -------- Profile modal coming from the top -------- */
+#profilePage {
+    /* PROFILE */
+    width: 65%;
+    /* MIKEY */
+    max-width: 800px;
+    height: 80%;
+    /* MIKEY */
+    position: fixed;
+    overflow: hidden;
+    /* hides close button (up arrow) for animation */
+    /*padding: 25px 40px 10px 0;*/
+    /* TOGGLE */
+    top: -120%;
+    /* hides the profile modal */
+    /*top: 0;*/
+    /* shows the profile modal */
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    /*background-color: white;*/
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: -1px 1px 120px -30px $colorBoxShadowModal;
+    transition: top ease 0.3s;
+    z-index: 12;
+    -webkit-animation: bgColorAnim 300s infinite;
+    animation: bgColorAnim 300s infinite;
+}
+
+/* -------- Common styles for modals -------- */
+
+.modal-container {
+    display: flex;
+    color: $fontColorModal;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.modal-container-2 {
+    /* PROFILE */
+    display: flex;
+    flex-direction: column;
+    color: #232323;
+}
+
+.modal-header {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    height: 100%;
+    width: 30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    .modal-close-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 30px;
+        padding-left: 30px;
+        border-radius: 50px;
+        cursor: pointer;        
+        i {
+            font-size: 4rem;
+            color: $fontColorModal;
+        }
+    }
+}
+
+.modal-header-2 {
+    /* PROFILE */
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100%;
+    bottom: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+    .modal-close-btn-2 {
+        /* PROFILE */
+        position: relative;
+        top: 60px;
+        /* hide close button (up arrow) for animation */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 30px;
+        border-radius: 50px;
+        cursor: pointer;        
+        i {
+            font-size: 4rem;
+            color: $fontColorModal;
+        }
+    }
+}
+
+
+
+
+
+.modal-body {
+    position: fixed;
+    width: 90%;
+    height: 90%;
+    margin-left: 50px;
+    overflow: auto;
+}
+
+.modal-body-2 {
+    /* PROFILE */
+    position: fixed;
+    height: 90%;
+    width: 80%;
+    max-width: 28rem;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    overflow: auto;
+}
+
+.modal-body-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.modal-body-block {
+    width: 90%;
+}
+
+.modal-body-block-title {
+    font-weight: 600;
+    color: $fontColorModal;
+}
+
+.modal-body-block-content {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;    
+    a {
+        color: $fontColorModal;
+    }
+}
+
+
+.modal-body-title-container {
+    /* PROFILE */
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-body-title-title {
+    /* PROFILE */
+    width: 80%;
+    color: $fontColorModal;
+}
+
+.modal-body-title-icons {
+    /* PROFILE */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 4rem;
+    font-size: 2rem;
+    color: black;
+    
+    a {
+        color: $backgroundColor1;
+    }
+}
+
+
+.profile-details {
+    /* PROFILE */
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.profile-input-wrapper {
+    display: flex;    
+    label {
+        width: 30%;
+        color: $fontColorModal;
+        text-transform: uppercase;
+    }
+}
+
+
+.profile-input-wrapper input[type=text],
+.profile-input-wrapper input[type=url] {
+    margin-bottom: 1em;
+    background: transparent;
+    border: none;
+    border-bottom: $underlineProfileInput;
+    outline: none;
+    width: 60%;
+    font-family: $fontRobotoMono;
+    font-weight: 300;
+    color: $fontColorModal;
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    color: lightgrey;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    color: lightgrey;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    color: lightgrey;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    color: lightgrey;
+}
+
+.profile-language {
+    /* PROFILE */
+    margin-bottom: 2em;
+    /*float: right;*/
+}
+
+.profile-logout {
+    transition: color ease 0.3s;
+    color:$logoutButton;
+}
+
+.profile-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.profile-add-details {
+    text-transform: uppercase;
+    padding: 5px 0px;
+    margin-top: 25px;
+    border-radius: 50px;
+    border: $borderStyleModal;
+    outline: none;
+    color: $fontColorModal;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: $fontRobotoMono;
+    font-weight: 700;
+    width: 50%;
+    transition: all ease 0.3s;
+}
+
+.profile-save-details {
+    /* PROFILE MIKEY */
+    padding: 5px 0px;
+    margin-top: 15px;
+    margin-bottom: 50px;
+    border-radius: 50px;
+    /*border: none;*/
+    border: $borderStyleModal;
+    outline: none;
+    color: $colorSaveButton;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: $fontRobotoMono;
+    font-weight: 700;
+    width: 50%;
+    transition: all ease 0.3s;
+}
+
+.english {
+    /* PROFILE MIKEY */
+    margin-left: 0.75rem;
+}
+
+/* -------- Profile modal hover effects -------- */
+
+.profile-save-details:hover,
+.profile-add-details:hover {
+    /* PROFILE MIKEY */
+    background-color: $backgroundSaveButtonHover;
+    color: $colorSaveButtonHover;
+}
+
+.profile-logout:hover {
+    /* PROFILE MIKEY */
+    color: $logoutButtonHover;
+}

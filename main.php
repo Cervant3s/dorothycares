@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300|Roboto:500" rel="stylesheet">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/main.css">
+	<link rel="stylesheet" href="/css/standardTheme.css" id="source-css">
 
   <title>DorothyCares <?= VERSION ?></title>
 
@@ -66,6 +66,13 @@
   <nav class="os-bar">
     <div class="os-bar__date-time"></div>
   </nav>
+  <!-- Theme controller -->
+  <div id="theme-selector">
+    <span class="switch-left fa fa-caret-left" onclick="switchTheme(-1)"></span>
+    <span class="theme-selector-title" onclick="toggleThemesList()">Themes</span>
+    <ul></ul>
+    <span class="switch-right fa fa-caret-right" onclick="switchTheme(1)"></span>
+  </div>
 
   <!-- Main ball -->
   <div class="dorothy-ball-container">
@@ -216,6 +223,7 @@
   </section>
 
   <!-- JS Insertion -->
+  <script src="" id="themeScript"></script>
   <script src="/js/anime.min.js"></script> <!-- http://animejs.com/ -->
   <script src="/js/modernizr-3.5.0.min.js"></script> <!-- https://modernizr.com/ -->
   <script src="/js/plugins.js"></script>
@@ -223,6 +231,7 @@
   <script src="/js/axios.min.js"></script> <!-- https://github.com/axios/axios -->
   <script src="/js/main.js"></script>
   <script src="/js/dialogflow.js"></script>
+  <script src="/js/themeSelector.js"></script>
 
   <!--
   Dev var_dump

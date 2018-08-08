@@ -4,6 +4,12 @@ Dialogflow conversation
 ----------------------------------------------------------------------
 */
 
+/**
+ * @function toggleAnswerModal
+ * @param {*} modal 
+ * @param {boolean} show true affiche, false cache la fenêtre modal
+ * @description fonction qui affiche ou cache la fenêtre Modal.
+ */
 function toggleAnswerModal(modal,show = true) {
 
   if (show) {
@@ -18,6 +24,15 @@ function toggleAnswerModal(modal,show = true) {
 
 }
 
+/**
+ * @function createLink
+ * @param {string} link url du lien
+ * @param {boolean} displayText 
+ * @param {string} title title de la balise
+ * @param {string} target target de la balise
+ * @returns {string} retourne la balise <a>
+ * @description crée une balise <a>
+ */
 function createLink(link, displayText = false, title = '', target = "_blank") {
   if (!displayText) { // if no displayText
     return '<a href="' + link + '" rel="external" target="' + target + '" title="' + title + '">' + link + '</a>';
@@ -26,6 +41,12 @@ function createLink(link, displayText = false, title = '', target = "_blank") {
   }
 }
 
+/**
+ * @function isJsonString
+ * @param {string} str objet JSON en format texte
+ * @returns {boolean} true le texte est un objet JSON, false le texte n'est pas un objet JSON
+ * @description vérifie si le string est au format JSON
+ */
 function isJsonString(str) {
     try {
         JSON.parse(str);
@@ -35,6 +56,12 @@ function isJsonString(str) {
     return true;
 }
 
+/**
+ * @function formatTextFromDorothy
+ * @param {string} str
+ * @description Rend le lien cliquable et ajoute une nouvelle ligne avec <br/>
+ * @see voir la méthode anchorme dans le fichier anchorme.js
+ */
 function formatTextFromDorothy (str) {
   /* Make link clickable and transform new line to <br> */
   let options = {
@@ -48,6 +75,12 @@ function formatTextFromDorothy (str) {
   return anchorme(nl2br(str), options);
 }
 
+/**
+ * @function escapeHtml
+ * @param {string} text le texte qui doit être nettoyer
+ * @returns {string} retourne le texte nettoyer
+ * @description remplace certain caractère html en caractère d'échappement (ex: & est remplacer par &amp)
+ */
 function escapeHtml(text) {
   return text
       .replace(/&/g, "&amp;")
@@ -57,7 +90,13 @@ function escapeHtml(text) {
       .replace(/'/g, "&#039;");
 }
 
-
+/**
+ * @function addDorothyAnswerText
+ * @param {string} answer le texte de la réponse à afficher dans le terminal
+ * @param {string} selector selecteur css des balises cibles.
+ * @param {boolean} error true : une erreur c'est produite, false, la requête à réussie
+ * @description crée une nouvelle balise et y ajoute la réponse de Dorothy 
+ */
 function addDorothyAnswerText(answer, selector, error = false) {
   // (IN) [string] answer : text of the answer to display in terminal
   // (IN) [string] selector : selector to target where to write
@@ -70,29 +109,86 @@ function addDorothyAnswerText(answer, selector, error = false) {
   elements[elements.length - 1].appendChild(div);
 
   if (!error) { // if no error
-
-    div.innerHTML = answer;
-    //console.log(document.querySelectorAll(selector));
-    //console.log(answer);
-
+    addTypingResponse(answer, div);
   } else { // if error
-
-    let errorText = [
+    
+    const errorText = [
       'Sorry. There is a bug in my brain. Please try again!',
       'OMG! My digital brain has some disturbances.',
       'Oops, I did it again. There is a new bug.',
       'Please don\'t be sad but I\'ve some difficulties to answer you.'
-    ]
-    div.innerText = errorText[ Math.floor(Math.random() * errorText.length) ];
+    ];
+    addTypingResponse(errorText[ Math.floor(Math.random() * errorText.length) ], div);
 
     console.log('*** /!\ There is an error /!\ ***');
     console.log(answer);
     console.log('*** *** *** *** ***');
-
   }
-
 }
 
+let responsesToWrite = []; // Next thing(s) Dorothy must type (contains arrays : [the response (string), the div where we put the response])
+let intervalTyping;
+let responseIndex = 0;
+
+/**
+ * @function addTypingResponse 
+ * @description Add a response to type into the pile.
+ * @param {string} text The text to add
+ * @param {Element} div The div where we put the response
+ */
+const addTypingResponse = (text, div) => {
+  responsesToWrite.push([text, div]);
+  if(intervalTyping === undefined){
+    intervalTyping = setTimeout(typingResponse, typingSpeed());
+  }
+};
+/**
+ * @function typingResponse
+ * @description The function to Dorothy type the response. We call it into a 'timeout', again and again until Dorothy finish to type it.
+ */
+const typingResponse = () => {
+  let div = responsesToWrite[0][1];
+  let text = responsesToWrite[0][0];
+  
+  if(text[responseIndex] === '<'){
+    while(text[responseIndex] != '>'){
+      responseIndex++;
+    }
+    responseIndex++;
+  }
+  
+  div.innerHTML = text.substring(0, responseIndex);
+  
+  if(responseIndex >= text.length){
+    responseIndex = 0;
+    responsesToWrite.splice(0, 1);
+
+    if(responsesToWrite.length > 0){
+      intervalTyping = setTimeout(typingResponse, typingSpeed());
+    }
+    else{
+      intervalTyping = undefined;
+    }
+  }
+  else{
+    responseIndex++;
+    intervalTyping = setTimeout(typingResponse, typingSpeed());
+  }
+};
+/**
+ * @function typingSpeed
+ * @description Return the speed
+ */
+const typingSpeed = ()=>{
+  const speedValue = Math.floor(33 / (responsesToWrite[0].length + 1));
+  return Math.round((Math.random() * speedValue) + 5);
+};
+
+/**
+ * @function addNewUserRequest
+ * @param {*string} selector selecteur css des balises cibles.
+ * @description crée une nouvelle balise pour une nouvelle requête de l'utilisateur.
+ */
 function addNewUserRequest(selector) {
 
   let elements = document.querySelectorAll(selector);
@@ -109,6 +205,12 @@ function addNewUserRequest(selector) {
 
 }
 
+/**
+ * @function writeRessourcesInfoModal
+ * @param {*} dataObject objet JSON reçus de dialogflow
+ * @param {*} contentBody balise cible.
+ * @description crée la fenêtre Modal, ajoute les info de l'objet "dataObject" et le place dans contentBody (ex: php)
+ */
 function writeRessourcesInfoModal(dataObject, contentBody) {
 
   let content = '';
@@ -240,6 +342,12 @@ function writeRessourcesInfoModal(dataObject, contentBody) {
 
 }
 
+/**
+ * @function writeToolboxInfoModal
+ * @param {*} dataObject objet JSON reçus de dialogflow
+ * @param {*} contentBody balise cible
+ * @description crée la fenêtre Modal, ajoute les info de l'objet "dataObject" et le place dans contentBody
+ */
 function writeToolboxInfoModal(dataObject, contentBody) {
 
   let content = '';
@@ -285,6 +393,12 @@ function writeToolboxInfoModal(dataObject, contentBody) {
 
 }
 
+/**
+ * @function writeStartupMembersInfoModal
+ * @param {*} dataObject objet JSON reçus par dialogflow
+ * @param {*} contentBody balise cible
+ * @description crée une fenêtre Modal, ajoute les info de l'objet "dataObject" concernant le membre et le place dans contentBody
+ */
 function writeStartupMembersInfoModal(dataObject, contentBody) {
 
   let content = '';
@@ -327,6 +441,17 @@ function writeStartupMembersInfoModal(dataObject, contentBody) {
 
 }
 
+/**
+ * @function launchDialogFlowConversation
+ * @param {*} e 
+ * @param {*} accessToken 
+ * @param {*} baseUrl 
+ * @param {*} version 
+ * @param {*} emailUser 
+ * @param {*} tokenUser 
+ * @param {*} sessionId 
+ * @description fonction PRINCIPAL qui reçoit la réponse de DialogFlow et la traite
+ */
 function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,tokenUser,sessionId) {
 
   document.querySelector('.user-input').focus();
@@ -454,7 +579,11 @@ function launchDialogFlowConversation (e,accessToken,baseUrl,version,emailUser,t
   }
 
 }
-
+/**
+ * @event DOMContentLoaded
+ * @description event qui se lance après le chargement des balises HTML. (DOM)
+ * @function fonction qui initialise les variables
+ */
 document.addEventListener('DOMContentLoaded', function() {
 
     date_time('.os-bar__date-time'); // update date/time

@@ -1,0 +1,105 @@
+/*
+-----------------------------------------------
+LOGIN PAGE
+-----------------------------------------------
+*/
+
+#login-interface {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .container-login {
+        width: 600px;
+        text-align: center;
+        padding: 100px 0;
+        border-radius: 10px;
+    }
+    .welcome {
+        font-weight: 100;
+        font-size: $fontSizeWelcomeMessage;
+        color: $colorWelcomeMessageHover;
+    }
+    .google-button {
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+        height: 60px;
+        margin-top: 80px;
+    }
+    .google-button-block {
+        width: 280px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $backgroundCallToAction2;
+        box-shadow: 0px 3px 20px 0px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+        height: 50px;
+        width: 50px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: $backgroundLogoCallToAction;
+        border-radius: 100%;
+    }
+    .logo img {
+        height: 18px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .call-to-action {
+        width: 100%;
+        /* Google sign in guidelines [Roboto] */
+        font-weight: 500;
+        /* Google sign in guidelines [Roboto - Medium] */
+        position: relative;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: $backgroundCallToAction;
+        padding: 1em;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        overflow: hidden;
+        border-radius: 100px;
+        @include fontStyle ($fontColorCallToAction,1.2em,$fontRoboto);
+
+        span {
+            position: relative;
+            pointer-events: none;
+        }
+        &:before {
+            --size: 0;
+            content: '';
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--size);
+            height: var(--size);
+            background: radial-gradient(circle closest-side, $backgroundCallToActionHover, transparent);
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            transition: width .2s ease, height .2s ease;
+        }
+        &:hover::before {
+            --size: 400px;
+        }
+    }
+    .g-signin2 {
+        width: 120px;
+        margin: auto;
+    }
+}
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+.modal-body-title {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: $fontAmatic;
+}
+
+.modal-body-block {
+    width: 90%;
+}
+
+.modal-body-block-title {
+    font-weight: 600;
+    color: $fontColorModal;
+}
+
+.modal-body-block-content {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+    a {
+        color: $fontColorModal;
+    }
+}
+
+#profilePage {
+    max-width: 600px;;
+}
+
+.profile-input-wrapper {
+    display: flex;    
+    label {
+        font-size: 1.5rem;
+    }
+}

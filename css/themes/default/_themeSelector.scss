@@ -1,0 +1,58 @@
+#theme-selector{
+    @include no-select;
+
+    position: fixed;
+    top: 8px;
+    left: 8px;
+
+    width: 100px;
+    padding: 4px 12px;
+    color: $fontColorCallToAction;
+    text-align: center;
+
+    border: 1px solid rgba($fontColorCallToAction, 0.4);
+    border-radius: 16px;
+
+    opacity: 0.3;
+    transition: width 0.3s, height 0.3s, opacity 0.3s;
+    
+    .theme-selector-title{
+        cursor: pointer;
+    }
+
+    .switch-left, .switch-right{
+        opacity: 0;
+        transition: opacity 0.6s;
+        cursor: pointer;
+    }
+    .switch-left{ float: left; }
+    .switch-right{ float: right; }
+
+    ul, li{
+        margin: 0;
+        padding: 0;
+    }
+    ul{
+        display: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        list-style: none;
+        
+        transition: opacity 0.5s;
+    }
+    
+    li{
+        padding: 6px 0;
+        border-bottom: 1px solid $fontColorCallToAction;
+        color: rgba($fontColorCallToAction, 0.4);
+        opacity: 0;
+        transition: opacity 0.5s;
+
+        span{
+            cursor: pointer;
+            transition: color 0.3s;
+            &:hover{ color: $fontColorCallToAction; }
+        }
+    }
+}

@@ -19,7 +19,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,300|Roboto:500" rel="stylesheet">
   <link rel="stylesheet" href="/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/normalize.css">
-	<link rel="stylesheet" href="/css/themes/newMain.css" id="source-css">
+	<link rel="stylesheet" href="/css/standardTheme.css" id="source-css">
 
   <title>DorothyCares <?= VERSION ?></title>
 

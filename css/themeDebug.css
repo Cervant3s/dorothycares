@@ -1,15 +1,4 @@
 @charset "UTF-8";
-/**
-    EXPLICATIONS : 
-
-    defaults            Contient les éléments constituant le design (importer 'all' pour tous les importer d'un coup)
-                        Créer un nouveau dossier avec le nom du theme s'il est nécessaire de modifier une partie du design par rapport au thème de base.
-    
-    modules             Contient les variables, mixins et autre modifiers (importer 'all' pour tous importer sauf les varibales)
-        variables       Contient les variables propres à chaque thème (importer celles qui conviennent)
-
-    themes              Contient les fichiers CSS une fois compilé. C'est ici qu'on importe ce dont on a besoin.
-*/
 @-webkit-keyframes blink {
   0% {
     opacity: 0;
@@ -472,14 +461,14 @@ BALL & MENU
   border-radius: 100%;
   z-index: 10;
   cursor: pointer;
-  box-shadow: inset 80px -10px 100px 5px red, 0px 0px 100px -20px #850505;
+  box-shadow: inset 80px -10px 120px 5px red, 0px 0px 100px -20px #850505;
   opacity: 0;
   /* ------------ toggle maybe ------------ */
   transition: box-shadow ease 0.5s;
 }
 
 .dorothy-ball:hover {
-  box-shadow: inset -80px -10px 100px 5px #612b2b, 40px -10px 100px -40px #ce0707;
+  box-shadow: inset -80px -10px 120px 5px #612b2b, 40px -10px 100px -40px #ce0707;
 }
 
 .ball-menu {

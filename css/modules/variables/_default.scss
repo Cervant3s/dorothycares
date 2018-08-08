@@ -9,12 +9,12 @@ $fontAmatic: 'Amatic SC', Cursive;
 
 $bgDorothyImg: url("../../img/bg-doro5.png");
 
-$backgroundColor1: #978EFF; // <== base color / ref color
-$backgroundColor2: #63A9FF;
-$backgroundColor3: #667cbe;
-$backgroundColor4: #d47fa5;
-$backgroundColor5: #b97cbf;
-$backgroundColor6: #7F49DD;
+$backgroundColor1: rgb(124, 112, 255); // <== base color / ref color
+$backgroundColor2: rgb(74, 156, 255);
+$backgroundColor3: #536cb8;
+$backgroundColor4: #cf6896;
+$backgroundColor5: #b86bbe;
+$backgroundColor6: rgb(119, 63, 214);
 
 $bodyColor: rgba(255, 255, 255, 1); // base fontColor for the body
 
@@ -33,7 +33,7 @@ $fontColorMenuTheme: rgba(255, 255, 255, 0.9);
 
 $colorWelcomeMessage: $bodyColor;
 $colorWelcomeMessageHover: lightgrey;
-$fontSizeWelcomeMessage: 25px;
+$fontSizeWelcomeMessage: 35px;
 
 // Terminal
 
@@ -42,7 +42,6 @@ $fontColorDorothyAnswer: #81ffff;
 // Modal
 
 $fontColorModal: white; // Global font color for modal
-
 $fontColorModalCreators: lightgray; 
 $colorBoxShadowModal: #0D1321;
 $underlineProfileInput: 1px solid black;
@@ -62,13 +61,13 @@ $backgroundSaveButtonHover: $fontColorModal;
 
 $colorBall1: #8ee7db; 
 $colorBall2: #abddff; 
-$colorBallHover1: #a69df0; 
+$colorBallHover1: #9df0e5; 
 $collorBallHover2: #6896b5; 
-$colorBallDiffusion: 100px; //shadow-in diffusion
-$colorBallDiffusionHover: 100px;
+$colorBallDiffusion: 120px; //shadow-in diffusion
+$colorBallDiffusionHover: 120px;
 
 $backgroundBallItem: rgba(255, 255, 255, 0.12); // Ball Menu - Icones Periph 
-$backgroundBallItemHover: #645ea0;
+$backgroundBallItemHover: rgba(196, 185, 231, 0.7);
 $borderColorBallItem: white;
 $colorLogoBallItem: white;
-$unavailableBallCalendar: lightgrey;
+$unavailableBallCalendar: rgb(177, 177, 177);

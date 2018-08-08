@@ -72,7 +72,7 @@ const themeSelector = document.querySelector('#theme-selector');
 const themeChoice = [
     {
         publicName: "Standard",
-        fileName: "turingTheme"
+        fileName: "standardTheme"
     }, {
         publicName: "Debug",
         fileName: "themeDebug"

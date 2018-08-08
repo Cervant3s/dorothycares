@@ -1,0 +1,227 @@
+/*
+-----------------------------------------------
+TERMINAL (CHATBOX)
+-----------------------------------------------
+*/
+
+.terminal {
+    position: fixed;
+    bottom: -100%;
+    /*hide the box before the animation*/
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    /* background-color: rgba(30, 60, 90, 0.6); to test aspect terminal #0C0221 */
+    width: 75%;
+    /*default ratio to keep*/
+    height: 85%;
+    /*Change the height to resize the box or proceed to animation*/
+    border-top-left-radius: 10px;
+    /*Header of the terminal radius border set to 10px*/
+    border-top-right-radius: 10px;
+    /*top: 700px;  Push by default the terminal on a middle position*/
+    transition: width ease 0.2s, margin ease 0.2s, top ease 0.2s;
+    z-index: 0;
+    font-weight: 300;
+    font-size: 1.3rem;
+}
+
+/*White bar on top of the Terminal*/
+
+.terminal-header {
+    /*background-color: #a0b8d8;*/
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.terminal-header-btn {
+    width: 16px;
+    height: 16px;
+    border-radius: 20px;
+    margin-right: 0px;
+    display: none;
+}
+
+.terminal-header-item {
+    position: absolute;
+    display: inline;
+    padding-top: 8px;
+    padding-right: 0px;
+    right: 10px;
+}
+
+#window-name {
+    position: absolute;
+    font-size: 18px;
+    margin-left: 15px;
+    margin-top: 5px;
+    color: #0D1321;
+}
+
+.minimize {
+    /*Minimize button*/
+    background-color: orange;
+    box-shadow: inset 0px 0px 5px 2px #E8600C;
+    &:hover {
+        background-color: lightyellow;
+    }
+}
+
+.maximize {
+    /*Maximize button*/
+    background-color: #2C9DC9;
+    /* If minimize active set to green */
+    box-shadow: inset 0px 0px 5px 2px #000F42;
+    &:hover {
+        background-color: lightblue;
+        /*if minimize active set to lightgreen */
+    }
+}
+
+.close {
+    /*Close button*/
+    background-color: red;
+    box-shadow: inset 0px 0px 5px 2px #2B030F;
+    &:hover {
+        background-color: orange;
+    }
+}
+
+.fa-terminal {
+    position: absolute;
+    color: black;
+    left: 5px;
+    bottom: 9px;
+}
+
+/*------------------------
+  button hover state
+  --------------------------*/
+
+button {
+    border-width: 0px;
+    border-style: none;
+    &:focus {
+        /* Avoid blue line on click by default on custom button in Crome*/
+        outline: 0;
+    }
+}
+
+/*-------------------------------------
+  Terminal Content
+  ---------------------------------------*/
+
+.terminal-content {
+    /*Container for content (input / output display*/
+    padding: 0px 15px 0px 15px;
+    min-height: 45vh;
+    max-height: 70%;
+    overflow: auto;
+    .message {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 640px) {
+    .terminal-content .message {
+        display: block;
+    }
+}
+
+/*--------------------------------------
+  Custom scroll
+  ----------------------------------------*/
+
+.customScroll {
+    border: none;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-track {
+    border: 1px solid rgba(231, 231, 231, 0.68);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(231, 231, 231, 0.68);
+    border-radius: 10px;
+    &:hover {
+        background: rgba(255, 255, 255, 1);
+    }
+}
+
+
+/*--------------------------------------
+  Terminal interaction /Text/
+  ----------------------------------------*/
+
+.instruction {
+    padding-bottom: 10px;
+    overflow-wrap: break-word;
+    /* makes long string wrap once 'enter' key is pressed */
+    word-wrap: break-word;
+    /* makes long string wrap once 'enter' key is pressed */
+}
+
+.request {
+    padding-left: 20px;
+}
+
+.user-request:first-type {
+    display: none;
+}
+
+/*.user-request .user {
+      display: inline-block;
+      color: rgba(255,66,64,1);
+  }*/
+
+/*.user-request .symbol {
+      display: inline-block;
+      margin:0px 6px 0px 2px;
+  }*/
+
+.answer {
+    color: $fontColorDorothyAnswer;
+    font-weight: 800;
+    margin-top: 15px;
+    a {
+        color: white;
+        &:hover {
+           text-decoration: underline;
+        }
+    }
+    &:before {
+        content: '>';
+        display: inline-block;
+        padding-right: 5px;
+    }
+}
+
+.user-request {
+    .user-input {
+        min-width: 10px;
+        display: inline-block;
+        &:focus {
+            outline: 0px;
+        }
+    }
+
+    .terminal-symbol {
+        font-size: 120%;
+        font-weight: bold;
+        -webkit-animation: blink .5s ease-in-out;
+        animation: blink .5s ease-in-out;
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+    }
+}
+
+.terminal-control {
+    margin-left: 20px;
+}

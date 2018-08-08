@@ -84,7 +84,7 @@ const themeChoice = [
         fileName: "retroTheme"
     }, {
         publicName: "Legacy",
-        fileName: "newMain"
+        fileName: "legacyTheme"
     }];
 let themeIndex = 0;
 const fx = new TextScramble(themeSelector.querySelector('.theme-selector-title'));
@@ -129,7 +129,7 @@ let switchTheme = (switchTo) => {
     }
     ////////////////////////////////////////////////////////////////////////////////////
 
-    linkCss.setAttribute("href", "/css/themes/"+themeChoice[themeIndex].fileName +".css");
+    linkCss.setAttribute("href", "/css/"+themeChoice[themeIndex].fileName +".css");
     /* In standby for now... Wake it up for a next feature !
     let themeScript = document.querySelector('#themeScript');
     if(checkIfThemeHaveScript()){

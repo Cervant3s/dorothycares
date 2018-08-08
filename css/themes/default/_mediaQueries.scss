@@ -1,0 +1,46 @@
+@media only screen and (max-width: 700px) {
+    /* make welcome message on login page smaller */
+    #login-interface .welcome {
+        font-size: 1.6rem;
+    }
+    /* make width of welcome message bigger */
+    .welcome-message-style {
+        width: 80%;
+    }
+    /* make width of terminal bigger and font-size a bit smaller */
+    .terminal {
+        width: 90%;
+        font-size: 0.9rem;
+    }
+    /* make width of modal bigger and height a bit smaller */
+    #profilePage {
+        width: 90%;
+        height: 70%;
+    }
+    /**/
+    .modal-body-2 {
+        padding: 0 20px;
+    }
+    /* reduce input text font-size */
+    .profile-input-wrapper input[type=text] {
+        font-size: 0.8rem;
+    }
+    /* reduce label text font-size */
+    .profile-input-wrapper label {
+        font-size: 0.8rem;
+    }
+    /* make width of info modal bigger and padding right/left smaller */
+    #infoPage {
+        width: 60%;
+        padding: 2rem 0.6rem;
+    }
+    /* make title in info modal bigger */
+    .modal-info-title {
+        font-size: 1.5rem;
+    }
+    /* hide date and time */
+    .os-bar__date-time {
+        display: none;
+    }
+    /**/
+}

@@ -1,11 +1,3 @@
-// Fonts Family
-
-$fontRoboto: 'Roboto', sans-serif;
-$fontRobotoMono: 'Roboto Mono', monospace;
-$fontVerdana: 'verdana';
-
-// Background Fog Colors && First Color Charte
-
 $bgDorothyImg: none;
 
 $backgroundColor1: rgb(14, 15, 19); // <== base color / ref color
@@ -15,11 +7,8 @@ $backgroundColor4: #2c202b;
 $backgroundColor5: #160720;
 $backgroundColor6: rgb(14, 13, 15);
 
-$bodyColor: rgb(255, 255, 255); // base fontColor for the body
-
 // loading page - call to action
 
-$fontColorCallToAction: white;
 $backgroundCallToAction: #1e1f24;
 $backgroundCallToAction2: rgb(0, 0, 0);
 $backgroundCallToActionHover: #83a09e; 
@@ -27,12 +16,7 @@ $backgroundLogoCallToAction: rgb(0, 0, 0); // <== background color logo google
 
 // Interface
 
-$fontColorDateTime: rgba(255, 255, 255, 0.9); 
-$fontColorMenuTheme: rgba(255, 255, 255, 0.9);
-
-$colorWelcomeMessage: $bodyColor;
 $colorWelcomeMessageHover: rgb(140, 188, 211);
-$fontSizeWelcomeMessage: 25px;
 
 // Terminal
 
@@ -40,21 +24,10 @@ $fontColorDorothyAnswer: #b3dcdf;
 
 // Modal
 
-$fontColorModal: white; // Global font color for modal
-
-$fontColorModalCreators: lightgray; 
 $colorBoxShadowModal: rgb(195, 233, 255);
 $underlineProfileInput: 1px solid rgb(255, 255, 255);
-
-$logoutButton: $fontColorModal;
 $logoutButtonHover: #c04a4a;
-$fontColorTooltip: $fontColorModal;
-$backgroundColorTooltip: #555;
-
-$borderStyleModal: 2px solid $fontColorModal; // "Save" button
-$colorSaveButton: $fontColorModal;
 $colorSaveButtonHover: #606974;
-$backgroundSaveButtonHover: $fontColorModal;
 
 
 // Ball Menu
@@ -64,11 +37,6 @@ $colorBall2: #abddff;
 $colorBallHover1: #ecfbff; 
 $collorBallHover2: #dbdbdb; 
 $colorBallDiffusion: 150px; //shadow-in diffusion
-$colorBallDiffusionHover: 120px;
 
-
-$backgroundBallItem: rgba(255, 255, 255, 0.12); // Ball Menu - Icones Periph 
 $backgroundBallItemHover: #a09999;
-$borderColorBallItem: white;
-$colorLogoBallItem: white;
 $unavailableBallCalendar: lightgrey;

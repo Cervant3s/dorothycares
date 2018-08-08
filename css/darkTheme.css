@@ -608,7 +608,7 @@ BALL & MENU
 
 .welcome-message-style h1 {
   font-weight: 500;
-  font-size: 25px;
+  font-size: 35px;
 }
 
 .welcome-message-style:hover {
@@ -1367,7 +1367,7 @@ LOGIN PAGE
 
 #login-interface .welcome {
   font-weight: 100;
-  font-size: 25px;
+  font-size: 35px;
   color: #8cbcd3;
 }
 

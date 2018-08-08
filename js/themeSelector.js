@@ -265,7 +265,7 @@ let allItemIsHidden = (list) => {
     return true;
 };
 
-let injectLines = (element, nbreOfLines = 39) => {
+let injectLines = (element, nbreOfLines = 60) => {
     let linesContainer = document.createElement('div');
     linesContainer.classList.add('lines');
 
